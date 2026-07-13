@@ -131,8 +131,8 @@
                                 <img src="{{ Storage::url($settings['welcome_image']) }}" alt="Welcome Image" class="h-40 object-cover rounded-xl">
                             </div>
                         @endif
-                        <input type="file" name="welcome_image" accept="image/*" onchange="window.initCropper(this, 16/9)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
-                        <p class="text-xs text-muted mt-2">Gambar ini akan tampil di bagian "Selamat Datang di ..." pada halaman utama (Beranda).</p>
+                        <input type="file" name="welcome_image" accept="image/*" onchange="window.initCropper(this, 4/3)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
+                        <p class="text-xs text-muted mt-2">Format: JPG, PNG, WEBP. <strong class="text-blue-600">Rekomendasi ukuran: 800x600px (Rasio 4:3)</strong> agar foto tidak terpotong.<br>Gambar ini akan tampil di bagian "Selamat Datang di ..." pada halaman utama (Beranda).</p>
                     </div>
 
                     <div>
