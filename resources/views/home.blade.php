@@ -4,73 +4,75 @@
 
 <!-- Hero Slider Section -->
 @if($sliders->count() > 0)
-<div class="relative w-full aspect-video max-h-[500px] md:max-h-[700px] xl:max-h-[800px] overflow-hidden bg-slate-900 group" x-data="slider()">
-    <!-- Slides -->
-    <div class="relative h-full">
-        @foreach($sliders as $index => $slider)
-        <div x-show="activeSlide === {{ $index }}" 
-             x-transition:enter="transition ease-out duration-700" 
-             x-transition:enter-start="opacity-0 scale-105" 
-             x-transition:enter-end="opacity-100 scale-100" 
-             x-transition:leave="transition ease-in duration-500" 
-             x-transition:leave-start="opacity-100" 
-             x-transition:leave-end="opacity-0" 
-             class="absolute inset-0"
-             style="display: none;">
-            
-            <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-cover object-top">
-            
-            <!-- Gradient Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-transparent"></div>
+<div class="container mx-auto px-4 mt-6 md:mt-8 mb-12">
+    <div class="relative w-full aspect-[21/9] min-h-[400px] max-h-[500px] md:max-h-[650px] overflow-hidden bg-slate-900 group rounded-3xl shadow-2xl ring-1 ring-gray-900/5" x-data="slider()">
+        <!-- Slides -->
+        <div class="relative h-full">
+            @foreach($sliders as $index => $slider)
+            <div x-show="activeSlide === {{ $index }}" 
+                 x-transition:enter="transition ease-out duration-700" 
+                 x-transition:enter-start="opacity-0 scale-105" 
+                 x-transition:enter-end="opacity-100 scale-100" 
+                 x-transition:leave="transition ease-in duration-500" 
+                 x-transition:leave-start="opacity-100" 
+                 x-transition:leave-end="opacity-0" 
+                 class="absolute inset-0"
+                 style="display: none;">
+                
+                <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-cover object-top">
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent"></div>
 
-            <!-- Content -->
-            <div class="absolute inset-0 flex items-center">
-                <div class="container mx-auto px-4 md:px-12">
-                    <div class="max-w-3xl">
-                        @if($slider->title)
-                        <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold font-display text-white leading-tight mb-4 opacity-0"
-                            x-show="activeSlide === {{ $index }}"
-                            x-transition:enter="transition ease-out duration-700 delay-300"
-                            x-transition:enter-start="opacity-0 translate-y-8"
-                            x-transition:enter-end="opacity-100 translate-y-0">
-                            {{ $slider->title }}
-                        </h1>
-                        @endif
-                        
-                        @if($slider->subtitle)
-                        <p class="text-lg md:text-2xl text-gray-200 mb-8 opacity-0 leading-relaxed font-light"
-                           x-show="activeSlide === {{ $index }}"
-                           x-transition:enter="transition ease-out duration-700 delay-500"
-                           x-transition:enter-start="opacity-0 translate-y-8"
-                           x-transition:enter-end="opacity-100 translate-y-0">
-                            {{ $slider->subtitle }}
-                        </p>
-                        @endif
+                <!-- Content -->
+                <div class="absolute inset-0 flex items-center">
+                    <div class="container mx-auto px-8 md:px-16">
+                        <div class="max-w-3xl">
+                            @if($slider->title)
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white leading-tight mb-4 opacity-0 drop-shadow-lg"
+                                x-show="activeSlide === {{ $index }}"
+                                x-transition:enter="transition ease-out duration-700 delay-300"
+                                x-transition:enter-start="opacity-0 translate-y-8"
+                                x-transition:enter-end="opacity-100 translate-y-0">
+                                {{ $slider->title }}
+                            </h1>
+                            @endif
+                            
+                            @if($slider->subtitle)
+                            <p class="text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 opacity-0 leading-relaxed font-light drop-shadow"
+                               x-show="activeSlide === {{ $index }}"
+                               x-transition:enter="transition ease-out duration-700 delay-500"
+                               x-transition:enter-start="opacity-0 translate-y-8"
+                               x-transition:enter-end="opacity-100 translate-y-0">
+                                {{ $slider->subtitle }}
+                            </p>
+                            @endif
 
+                        </div>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
+
+        <!-- Navigation Arrows -->
+        @if($sliders->count() > 1)
+        <button @click="prev()" class="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button @click="next()" class="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <!-- Indicators -->
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 md:space-x-3">
+            @foreach($sliders as $index => $slider)
+            <button @click="goTo({{ $index }})" class="h-2 rounded-full transition-all duration-300 focus:outline-none" :class="activeSlide === {{ $index }} ? 'w-8 bg-blue-500' : 'w-2 bg-white/50 hover:bg-white/80'"></button>
+            @endforeach
         </div>
-        @endforeach
+        @endif
     </div>
-
-    <!-- Navigation Arrows -->
-    @if($sliders->count() > 1)
-    <button @click="prev()" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-    </button>
-    <button @click="next()" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-    </button>
-
-    <!-- Indicators -->
-    <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-3">
-        @foreach($sliders as $index => $slider)
-        <button @click="goTo({{ $index }})" class="h-2 rounded-full transition-all duration-300 focus:outline-none" :class="activeSlide === {{ $index }} ? 'w-8 bg-blue-500' : 'w-2 bg-white/50 hover:bg-white/80'"></button>
-        @endforeach
-    </div>
-    @endif
 </div>
 
 @push('scripts')
