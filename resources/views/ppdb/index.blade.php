@@ -80,8 +80,8 @@
                     <p class="text-gray-600 text-sm mb-8">Pendaftaran kini lebih mudah! Hubungi panitia PPDB kami secara langsung melalui WhatsApp untuk informasi dan pendaftaran.</p>
                     
                     @php
-                        $waNumber = '6281234567890'; // Should ideally come from settings
-                        $waText = urlencode('Halo Admin PPDB ' . config('app.name') . ', saya ingin mendapatkan informasi lebih lanjut mengenai pendaftaran peserta didik baru.');
+                        $waNumber = '6283832286799'; // Should ideally come from settings
+                        $waText = urlencode('Halo Panitia PPDB ' . config('app.name') . ', saya ingin mendapatkan informasi lebih lanjut mengenai pendaftaran peserta didik baru.');
                     @endphp
                     
                     <a href="https://wa.me/{{ $waNumber }}?text={{ $waText }}" target="_blank" class="inline-flex items-center justify-center px-6 py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-green-500/30 hover:-translate-y-1">
