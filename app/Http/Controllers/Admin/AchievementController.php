@@ -68,10 +68,6 @@ class AchievementController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            if ($achievement->photo) {
-                Storage::disk('public')->delete($achievement->photo);
-            }
-            
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('achievements', $filename, 'public');
@@ -80,6 +76,10 @@ class AchievementController extends Controller
             $image = $manager->read(storage_path('app/public/' . $path));
             $image->scale(width: 600);
             $image->save(storage_path('app/public/' . $path));
+            
+            if ($achievement->photo) {
+                Storage::disk('public')->delete($achievement->photo);
+            }
             
             $validated['photo'] = $path;
         }

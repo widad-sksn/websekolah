@@ -89,10 +89,6 @@ class PostController extends Controller
         }
 
         if ($request->hasFile('thumbnail')) {
-            if ($post->thumbnail) {
-                Storage::disk('public')->delete($post->thumbnail);
-            }
-            
             $file = $request->file('thumbnail');
             $filename = time() . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('posts', $filename, 'public');
@@ -101,6 +97,10 @@ class PostController extends Controller
             $image = $manager->read(storage_path('app/public/' . $path));
             $image->scale(width: 800);
             $image->save(storage_path('app/public/' . $path));
+            
+            if ($post->thumbnail) {
+                Storage::disk('public')->delete($post->thumbnail);
+            }
             
             $validated['thumbnail'] = $path;
         }

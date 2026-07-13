@@ -68,10 +68,6 @@ class TeacherController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            if ($teacher->photo) {
-                Storage::disk('public')->delete($teacher->photo);
-            }
-            
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('teachers', $filename, 'public');
@@ -80,6 +76,10 @@ class TeacherController extends Controller
             $image = $manager->read(storage_path('app/public/' . $path));
             $image->scale(width: 400);
             $image->save(storage_path('app/public/' . $path));
+            
+            if ($teacher->photo) {
+                Storage::disk('public')->delete($teacher->photo);
+            }
             
             $validated['photo'] = $path;
         }

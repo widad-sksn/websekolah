@@ -59,13 +59,13 @@ class DownloadController extends Controller
         ];
 
         if ($request->hasFile('file')) {
-            if ($download->file_path) {
-                Storage::disk('public')->delete($download->file_path);
-            }
-            
             $file = $request->file('file');
             $filename = time() . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('downloads', $filename, 'public');
+            
+            if ($download->file_path) {
+                Storage::disk('public')->delete($download->file_path);
+            }
             
             $data['file_path'] = $path;
             $data['size'] = $file->getSize();
