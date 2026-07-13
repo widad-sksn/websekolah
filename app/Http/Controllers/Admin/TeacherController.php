@@ -30,7 +30,7 @@ class TeacherController extends Controller
             'position' => 'nullable|string|max:255',
             'subject' => 'nullable|string|max:255',
             'order' => 'integer',
-            'photo' => 'nullable|image|max:2048'
+            'photo' => 'nullable|image|max:51200'
         ]);
 
         if ($request->hasFile('photo')) {
@@ -64,7 +64,7 @@ class TeacherController extends Controller
             'position' => 'nullable|string|max:255',
             'subject' => 'nullable|string|max:255',
             'order' => 'integer',
-            'photo' => 'nullable|image|max:2048'
+            'photo' => 'nullable|image|max:51200'
         ]);
 
         if ($request->hasFile('photo')) {

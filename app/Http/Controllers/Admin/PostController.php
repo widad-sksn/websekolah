@@ -32,7 +32,7 @@ class PostController extends Controller
             'content' => 'required',
             'category_id' => 'nullable|exists:categories,id',
             'status' => 'required|in:draft,published',
-            'thumbnail' => 'nullable|image|max:2048',
+            'thumbnail' => 'nullable|image|max:51200',
         ]);
         
         $validated['slug'] = Str::slug($validated['title']) . '-' . Str::random(5);
@@ -77,7 +77,7 @@ class PostController extends Controller
             'content' => 'required',
             'category_id' => 'nullable|exists:categories,id',
             'status' => 'required|in:draft,published',
-            'thumbnail' => 'nullable|image|max:2048',
+            'thumbnail' => 'nullable|image|max:51200',
         ]);
         
         $validated['is_featured'] = $request->has('is_featured');

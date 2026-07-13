@@ -31,7 +31,7 @@
                             <input id="file" name="file" type="file" required class="sr-only">
                         </label>
                     </div>
-                    <p class="text-xs text-gray-500 mt-2" id="file-name">Maksimal 10MB (PDF, DOC, DOCX, XLS, XLSX, ZIP)</p>
+                    <p class="text-xs text-gray-500 mt-2" id="file-name">Maksimal 50MB (PDF, DOC, DOCX, XLS, XLSX, ZIP)</p>
                 </div>
             </div>
             @error('file') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror

@@ -28,7 +28,7 @@ class GalleryController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'images.*' => 'image|max:2048'
+            'images.*' => 'image|max:51200'
         ]);
 
         $gallery = Gallery::create([
@@ -66,7 +66,7 @@ class GalleryController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'images.*' => 'image|max:2048'
+            'images.*' => 'image|max:51200'
         ]);
 
         $gallery->update([

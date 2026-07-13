@@ -45,7 +45,7 @@
             <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-dark mb-1">Foto/Dokumentasi (Opsional)</label>
                 <input type="file" name="photo" accept="image/*" onchange="window.initCropper(this, 4/3)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
-                <p class="mt-1 text-xs text-muted">Format: JPG, PNG, WEBP. Maks: 2MB.</p>
+                <p class="mt-1 text-xs text-muted">Format: JPG, PNG, WEBP. Maks: 50MB.</p>
                 @error('photo') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
             </div>
         </div>

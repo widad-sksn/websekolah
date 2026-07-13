@@ -29,7 +29,7 @@ class SliderController extends Controller
             'subtitle' => 'nullable|string|max:255',
             'status' => 'boolean',
             'order' => 'integer',
-            'image' => 'required|image|max:3072'
+            'image' => 'required|image|max:51200'
         ]);
 
         if ($request->hasFile('image')) {
@@ -64,7 +64,7 @@ class SliderController extends Controller
             'subtitle' => 'nullable|string|max:255',
             'status' => 'boolean',
             'order' => 'integer',
-            'image' => 'nullable|image|max:3072'
+            'image' => 'nullable|image|max:51200'
         ]);
 
         if ($request->hasFile('image')) {

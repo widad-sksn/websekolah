@@ -30,7 +30,7 @@ class AchievementController extends Controller
             'level' => 'nullable|string|max:255',
             'year' => 'nullable|string|max:4',
             'description' => 'nullable|string',
-            'photo' => 'nullable|image|max:2048'
+            'photo' => 'nullable|image|max:51200'
         ]);
 
         if ($request->hasFile('photo')) {
@@ -64,7 +64,7 @@ class AchievementController extends Controller
             'level' => 'nullable|string|max:255',
             'year' => 'nullable|string|max:4',
             'description' => 'nullable|string',
-            'photo' => 'nullable|image|max:2048'
+            'photo' => 'nullable|image|max:51200'
         ]);
 
         if ($request->hasFile('photo')) {

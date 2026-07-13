@@ -24,7 +24,7 @@ class DownloadController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'required|file|max:10240' // max 10MB
+            'file' => 'required|file|max:51200' // max 10MB
         ]);
 
         if ($request->hasFile('file')) {
@@ -51,7 +51,7 @@ class DownloadController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'nullable|file|max:10240'
+            'file' => 'nullable|file|max:51200'
         ]);
 
         $data = [
