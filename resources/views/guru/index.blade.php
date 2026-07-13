@@ -23,8 +23,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             @forelse($teachers as $teacher)
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-shadow text-center p-6">
-                <div class="w-32 h-32 mx-auto rounded-full p-2 bg-gray-50 border border-gray-100 mb-6 transform group-hover:scale-105 transition-transform duration-300">
-                    <img src="{{ Storage::url($teacher->photo_path) }}" alt="{{ $teacher->name }}" loading="lazy" class="w-full h-full object-cover rounded-full">
+                <div class="w-32 h-32 mx-auto rounded-full p-2 bg-gray-50 border border-gray-100 mb-6 transform group-hover:scale-105 transition-transform duration-300 flex items-center justify-center overflow-hidden">
+                    @if($teacher->photo)
+                        <img src="{{ Storage::url($teacher->photo) }}" alt="{{ $teacher->name }}" loading="lazy" class="w-full h-full object-cover rounded-full">
+                    @else
+                        <span class="text-4xl font-bold text-gray-300">{{ substr($teacher->name, 0, 1) }}</span>
+                    @endif
                 </div>
                 <h3 class="text-lg font-bold font-display text-dark mb-1">{{ $teacher->name }}</h3>
                 <p class="text-blue-600 font-medium text-sm mb-2">{{ $teacher->position }}</p>
