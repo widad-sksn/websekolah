@@ -20,8 +20,8 @@ class RolePermissionSeeder extends Seeder
         // Create default Super Admin
         $user = \App\Models\User::factory()->create([
             'name' => 'Super Administrator',
-            'email' => 'admin@schoolcms.com',
-            'password' => bcrypt('password'),
+            'email' => 'mtstigadua@gmail.com',
+            'password' => bcrypt('mts32@#_'),
         ]);
 
         $user->assignRole($superAdmin);
