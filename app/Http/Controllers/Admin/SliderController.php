@@ -68,10 +68,6 @@ class SliderController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            if ($slider->image) {
-                Storage::disk('public')->delete($slider->image);
-            }
-            
             $file = $request->file('image');
             $filename = time() . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('sliders', $filename, 'public');
@@ -80,6 +76,10 @@ class SliderController extends Controller
             $image = $manager->read(storage_path('app/public/' . $path));
             $image->scale(width: 1920);
             $image->save(storage_path('app/public/' . $path));
+            
+            if ($slider->image) {
+                Storage::disk('public')->delete($slider->image);
+            }
             
             $validated['image'] = $path;
         }

@@ -25,4 +25,14 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    protected static function booted()
+    {
+        static::saved(function () {
+            \\Illuminate\\Support\\Facades\\Cache::forget('home_recent_posts');
+        });
+        static::deleted(function () {
+            \\Illuminate\\Support\\Facades\\Cache::forget('home_recent_posts');
+        });
+    }
 }
