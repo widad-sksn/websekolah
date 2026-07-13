@@ -21,10 +21,6 @@
                 
                 <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-cover object-top">
                 
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent"></div>
-
                 <!-- Content -->
                 <div class="absolute inset-0 flex items-center">
                     <div class="container mx-auto px-8 md:px-16">
