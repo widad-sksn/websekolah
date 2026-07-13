@@ -11,10 +11,10 @@ class Slider extends Model
     protected static function booted()
     {
         static::saved(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_sliders');
+            \Illuminate\Support\Facades\Cache::forget('home_sliders');
         });
         static::deleted(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_sliders');
+            \Illuminate\Support\Facades\Cache::forget('home_sliders');
         });
     }
 }

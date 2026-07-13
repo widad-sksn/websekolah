@@ -11,10 +11,10 @@ class Achievement extends Model
     protected static function booted()
     {
         static::saved(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_achievements');
+            \Illuminate\Support\Facades\Cache::forget('home_achievements');
         });
         static::deleted(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_achievements');
+            \Illuminate\Support\Facades\Cache::forget('home_achievements');
         });
     }
 }

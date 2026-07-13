@@ -16,10 +16,10 @@ class Gallery extends Model
     protected static function booted()
     {
         static::saved(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_galleries');
+            \Illuminate\Support\Facades\Cache::forget('home_galleries');
         });
         static::deleted(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_galleries');
+            \Illuminate\Support\Facades\Cache::forget('home_galleries');
         });
     }
 }

@@ -29,10 +29,10 @@ class Post extends Model
     protected static function booted()
     {
         static::saved(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_recent_posts');
+            \Illuminate\Support\Facades\Cache::forget('home_recent_posts');
         });
         static::deleted(function () {
-            \\Illuminate\\Support\\Facades\\Cache::forget('home_recent_posts');
+            \Illuminate\Support\Facades\Cache::forget('home_recent_posts');
         });
     }
 }
