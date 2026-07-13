@@ -150,7 +150,7 @@
                 <div>
                     <h3 class="text-white font-semibold text-lg mb-6 font-display">Tautan Cepat</h3>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="/page/profil" class="hover:text-white transition-colors flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span> Profil Sekolah</a></li>
+                        <li><a href="/page/profil-sekolah" class="hover:text-white transition-colors flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span> Profil Sekolah</a></li>
                         <li><a href="/berita" class="hover:text-white transition-colors flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span> Berita Terbaru</a></li>
                         <li><a href="/galeri" class="hover:text-white transition-colors flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span> Galeri Kegiatan</a></li>
                         <li><a href="/pengumuman" class="hover:text-white transition-colors flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span> Pengumuman</a></li>
