@@ -37,13 +37,13 @@
     <!-- Navigation -->
     <header class="glass-nav sticky top-0 z-50 transition-all duration-300 shadow-sm" x-data="{ mobileMenuOpen: false }">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-12 md:h-14 lg:h-16">
+            <div class="flex items-center justify-between h-14 md:h-[68px] lg:h-[72px]">
                 <!-- Logo -->
                 <a href="/" class="flex items-center space-x-3">
                     @if(file_exists(public_path('images/logo.png')))
-                        <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'SchoolCMS') }}" class="h-8 md:h-10 w-auto">
+                        <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'SchoolCMS') }}" class="h-9 md:h-10 lg:h-[44px] w-auto">
                     @else
-                        <div class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-lg lg:text-xl font-display shadow-lg shadow-blue-500/30">
+                        <div class="w-9 h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-lg lg:text-xl font-display shadow-lg shadow-blue-500/30">
                             {{ substr(config('app.name', 'SchoolCMS'), 0, 1) }}
                         </div>
                     @endif
