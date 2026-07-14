@@ -322,32 +322,92 @@
             <p class="text-gray-600">Bukti komitmen kami dalam membina dan mengembangkan bakat serta potensi siswa dalam berbagai bidang.</p>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach($achievements as $achievement)
-            <a href="/prestasi/{{ $achievement->id }}" class="relative block h-72 rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
-                <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent"></div>
-                
-                <!-- Content Overlay -->
-                <div class="absolute bottom-0 left-0 w-full p-6 text-left">
-                    <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg mb-3">
-                        <span class="text-white text-xs font-bold">{{ $achievement->level }}</span>
-                    </div>
-                    <h3 class="font-bold text-white text-xl mb-1.5 leading-tight group-hover:text-blue-300 transition-colors">{{ $achievement->title }}</h3>
-                    <p class="text-slate-300 text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        Tahun {{ $achievement->year }}
-                    </p>
+        <div x-data="achievementSlider()" x-init="start()" class="relative overflow-hidden w-full py-4 -mx-4 px-4">
+            <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
+                @foreach($achievements as $achievement)
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-3">
+                    <a href="/prestasi/{{ $achievement->id }}" class="relative block h-72 rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
+                        <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent"></div>
+                        
+                        <!-- Content Overlay -->
+                        <div class="absolute bottom-0 left-0 w-full p-6 text-left">
+                            <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg mb-3">
+                                <span class="text-white text-xs font-bold">{{ $achievement->level }}</span>
+                            </div>
+                            <h3 class="font-bold text-white text-xl mb-1.5 leading-tight group-hover:text-blue-300 transition-colors">{{ $achievement->title }}</h3>
+                            <p class="text-slate-300 text-sm flex items-center">
+                                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                Tahun {{ $achievement->year }}
+                            </p>
+                        </div>
+                    </a>
                 </div>
-            </a>
-            @endforeach
+                @endforeach
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex justify-center mt-8 space-x-2">
+                <button @click="prev()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button @click="next()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
         </div>
         
-        <div class="text-center mt-10">
-            <a href="/prestasi" class="inline-flex items-center text-gray-600 font-medium hover:text-blue-600 transition-colors">
-                Lihat Seluruh Prestasi <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        <script>
+        function achievementSlider() {
+            return {
+                currentSlide: 0,
+                totalItems: {{ $achievements->count() }},
+                itemsPerSlide: 4,
+                interval: null,
+                init() {
+                    this.updateItemsPerSlide();
+                    window.addEventListener('resize', () => this.updateItemsPerSlide());
+                },
+                updateItemsPerSlide() {
+                    if (window.innerWidth < 640) this.itemsPerSlide = 1;
+                    else if (window.innerWidth < 1024) this.itemsPerSlide = 2;
+                    else this.itemsPerSlide = 4;
+                    
+                    if (this.currentSlide > Math.max(0, this.totalItems - this.itemsPerSlide)) {
+                        this.currentSlide = Math.max(0, this.totalItems - this.itemsPerSlide);
+                    }
+                },
+                start() {
+                    this.init();
+                    if(this.totalItems > this.itemsPerSlide) {
+                        this.interval = setInterval(() => {
+                            this.next();
+                        }, 5000);
+                    }
+                },
+                next() {
+                    if (this.currentSlide >= Math.max(0, this.totalItems - this.itemsPerSlide)) {
+                        this.currentSlide = 0;
+                    } else {
+                        this.currentSlide++;
+                    }
+                },
+                prev() {
+                    if (this.currentSlide <= 0) {
+                        this.currentSlide = Math.max(0, this.totalItems - this.itemsPerSlide);
+                    } else {
+                        this.currentSlide--;
+                    }
+                }
+            }
+        }
+        </script>
+
+        <div class="mt-12 text-center flex flex-col md:flex-row justify-center items-center gap-4">
+            <a href="/prestasi" class="inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 rounded-xl font-bold text-sm hover:bg-blue-600 hover:text-white transition-colors shadow-sm">
+                Lihat Semua Prestasi <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
         </div>
     </div>

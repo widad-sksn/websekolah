@@ -21,7 +21,7 @@ class HomeController extends Controller
         });
         
         $achievements = \Illuminate\Support\Facades\Cache::remember('home_achievements', 3600, function () {
-            return Achievement::latest()->take(4)->get();
+            return Achievement::latest()->take(8)->get();
         });
         
         $galleries = \Illuminate\Support\Facades\Cache::remember('home_galleries', 3600, function () {
