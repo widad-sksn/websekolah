@@ -127,11 +127,38 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
-                <div class="inline-block px-4 md:px-5 py-1.5 lg:py-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 shadow-sm mb-4 transition-all duration-300 hover:shadow-md hover:border-blue-300 hover:-translate-y-1 relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-                    <span class="block relative z-10 text-blue-700 font-bold text-xs sm:text-sm md:text-base lg:text-lg text-center leading-relaxed lg:leading-tight tracking-wide">
-                        Selamat Datang di <br class="block sm:hidden">{{ config('app.name', 'SchoolCMS') }}
-                    </span>
+                <style>
+                @keyframes fadeUpWelcome {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes gentleFloatWelcome {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-3px); }
+                }
+                .animate-fade-up-welcome {
+                    animation: fadeUpWelcome 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                }
+                .animate-float-welcome {
+                    animation: gentleFloatWelcome 5s ease-in-out infinite;
+                }
+                </style>
+                <div class="relative max-w-[360px] mx-auto lg:mx-0 w-full mb-[40px] animate-fade-up-welcome animate-float-welcome group">
+                    <!-- Subtle blue radial glow -->
+                    <div class="absolute inset-0 bg-[#2563EB] opacity-[0.06] blur-[24px] rounded-[24px] scale-110 -z-10 transition-opacity duration-500 group-hover:opacity-[0.1]"></div>
+                    
+                    <!-- Glassmorphism Card -->
+                    <div class="bg-[rgba(255,255,255,0.78)] backdrop-blur-[14px] border border-[rgba(59,130,246,0.12)] rounded-[24px] px-[28px] py-[24px] shadow-[0_12px_35px_rgba(37,99,235,0.08)] text-center flex flex-col items-center transition-all duration-300 hover:shadow-[0_16px_45px_rgba(37,99,235,0.12)] hover:-translate-y-1">
+                        <div class="text-[14px] font-semibold text-[#2563EB] mb-[12px]">
+                            ✨ Selamat Datang
+                        </div>
+                        <div class="text-[30px] font-extrabold text-[#0F172A] leading-[1.15] tracking-[-0.5px] mb-[6px]">
+                            MTs Muhammadiyah 32
+                        </div>
+                        <div class="text-[18px] font-semibold text-[#2563EB]">
+                            Sumberagung
+                        </div>
+                    </div>
                 </div>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
                     {{ $settings['school_motto'] ?? 'Mendidik Generasi Pemimpin Masa Depan' }}
