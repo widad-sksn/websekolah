@@ -120,66 +120,100 @@
 @endif
 
 <!-- Welcome Section -->
-<section class="bg-white relative overflow-hidden py-12 lg:py-24">
-    <div class="container mx-auto px-4 max-w-[1280px]">
-        <div class="flex flex-col lg:flex-row items-center gap-[48px] lg:gap-[80px]">
-            
-            <!-- Left Side (Text) -->
-            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mt-[40px] lg:mt-0 animate-fade-up">
-                
+<section class="pt-6 pb-12 md:pt-10 md:pb-20 bg-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-blue-50 blur-3xl opacity-70"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-indigo-50 blur-3xl opacity-70"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
                 <style>
-                @keyframes fadeUpHero {
-                    from { opacity: 0; transform: translateY(30px); }
+                @keyframes fadeUpWelcome {
+                    from { opacity: 0; transform: translateY(20px); }
                     to { opacity: 1; transform: translateY(0); }
                 }
-                .animate-fade-up {
-                    animation: fadeUpHero 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                @keyframes gentleFloatWelcome {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-2px); }
+                }
+                .animate-fade-up-welcome {
+                    animation: fadeUpWelcome 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                }
+                .animate-float-welcome {
+                    animation: gentleFloatWelcome 6s ease-in-out infinite;
                 }
                 </style>
-
-                <!-- Eyebrow -->
-                <span class="text-[14px] lg:text-[15px] font-semibold text-[#2563EB] uppercase tracking-[0.08em] mb-[10px]">
-                    Selamat Datang di
-                </span>
-                
-                <!-- School Name -->
-                <h3 class="text-[24px] lg:text-[34px] font-bold text-[#0F172A] mb-[18px]">
-                    MTs Muhammadiyah 32 Sumberagung
-                </h3>
-                
-                <!-- Main Headline -->
-                <h1 class="text-[32px] lg:text-[42px] font-extrabold text-[#0F172A] leading-[1.1] mb-[24px]">
-                    Mendidik Generasi<br>Berakhlak Mulia &<br>Berprestasi
-                </h1>
-                
-                <!-- Description -->
-                <p class="text-[16px] lg:text-[18px] text-[#475569] leading-[1.8] max-w-[650px] mx-auto lg:mx-0 mb-[28px]">
-                    Kami berkomitmen memberikan pendidikan berkualitas tinggi yang mengembangkan potensi intelektual, emosional, dan spiritual setiap siswa.
-                </p>
-                
-                <!-- Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
-                    <a href="/page/profil-sekolah" class="inline-flex justify-center items-center px-8 py-3.5 bg-[#2563EB] text-white font-semibold rounded-[100px] hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)]">
-                        Profil Sekolah
-                    </a>
-                    <a href="/ppdb" class="inline-flex justify-center items-center px-8 py-3.5 bg-white text-[#0F172A] font-semibold rounded-[100px] border border-gray-200 hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300">
-                        PPDB
-                    </a>
+                <div class="relative max-w-[280px] md:max-w-[340px] mx-auto lg:mx-0 w-full mt-[24px] mb-[28px] animate-fade-up-welcome animate-float-welcome group">
+                    <!-- Subtle blue radial glow -->
+                    <div class="absolute inset-0 bg-[#2563EB] opacity-[0.05] blur-[24px] rounded-[18px] scale-110 -z-10 transition-opacity duration-500 group-hover:opacity-[0.08]"></div>
+                    
+                    <!-- Glassmorphism Card -->
+                    <div class="bg-[rgba(255,255,255,0.82)] backdrop-blur-[12px] border border-[rgba(59,130,246,0.10)] rounded-[18px] px-[24px] py-[16px] shadow-[0_8px_24px_rgba(37,99,235,0.08)] text-center flex flex-col items-center transition-all duration-300 hover:shadow-[0_12px_32px_rgba(37,99,235,0.10)] hover:-translate-y-0.5">
+                        <div class="text-[13px] font-semibold text-[#2563EB] tracking-[0.3px] mb-[4px]">
+                            🏫 Selamat Datang di
+                        </div>
+                        <div class="text-[22px] md:text-[28px] font-extrabold text-[#0F172A] leading-[1.15] mb-[4px]">
+                            MTs Muhammadiyah 32
+                        </div>
+                        <div class="text-[16px] font-semibold text-[#2563EB]">
+                            Sumberagung
+                        </div>
+                    </div>
                 </div>
-                
-            </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
+                    {{ $settings['school_motto'] ?? 'Mendidik Generasi Pemimpin Masa Depan' }}
+                </h2>
 
-            <!-- Right Side (Image) -->
-            <div class="w-full lg:w-1/2">
-                <div class="relative w-full rounded-[24px] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] animate-fade-up" style="animation-delay: 0.2s;">
-                    @if(isset($welcome_image) && $welcome_image)
-                        <img src="{{ Storage::url($welcome_image) }}" alt="School Building" class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-700 ease-in-out">
+                <!-- Mobile Image (Hidden on Desktop) -->
+                <div class="block lg:hidden w-full relative max-w-md mx-auto my-6">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-500 transform rotate-3 rounded-3xl opacity-20"></div>
+                    @if($welcome_image)
+                        <img src="{{ Storage::url($welcome_image) }}" alt="School Building" class="relative rounded-3xl shadow-xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
                     @else
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop" alt="School Building" class="object-cover w-full h-auto aspect-[4/3] hover:scale-105 transition-transform duration-700 ease-in-out">
+                        <img src="https://ui-avatars.com/api/?name=School&background=0D8ABC&color=fff&size=512" alt="School" class="relative rounded-3xl shadow-xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
                     @endif
                 </div>
+
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    Kami berkomitmen untuk memberikan pendidikan berkualitas tinggi yang mengembangkan potensi intelektual, emosional, dan spiritual setiap siswa. Dengan fasilitas modern dan tenaga pendidik profesional, kami siap mengantarkan anak Anda menuju kesuksesan.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                    <div class="flex items-center justify-center lg:justify-start space-x-4 text-left">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg">Kurikulum Merdeka</h4>
+                            <p class="text-sm text-gray-500">Berbasis kompetensi</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-start space-x-4 text-left">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg">Pendidikan Karakter</h4>
+                            <p class="text-sm text-gray-500">Berbasis nilai Islami</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-4 flex justify-center lg:justify-start">
+                    <a href="/page/profil-sekolah" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                        Pelajari Lebih Lanjut <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
             </div>
-            
+
+            <!-- Desktop Image (Hidden on Mobile) -->
+            <div class="hidden lg:block w-full lg:w-1/2 relative max-w-md mx-auto lg:max-w-none">
+                <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-500 transform rotate-3 rounded-3xl opacity-20"></div>
+                @if($welcome_image)
+                    <img src="{{ Storage::url($welcome_image) }}" alt="School Building" class="relative rounded-3xl shadow-2xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
+                @else
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop" alt="School Building" class="relative rounded-3xl shadow-2xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
+                @endif
+            </div>    
+
         </div>
     </div>
 </section>
