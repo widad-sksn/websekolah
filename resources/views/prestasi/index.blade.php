@@ -24,7 +24,7 @@
             @forelse($achievements as $achievement)
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all">
                 <div class="relative h-48 overflow-hidden">
-                    <img src="{{ Storage::url($achievement->image_path) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute top-4 left-4">
                         <span class="px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full shadow-sm">
                             {{ $achievement->level }}

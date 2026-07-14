@@ -6,7 +6,7 @@
 <!-- Open Graph -->
 <meta property="og:title" content="{{ $post->title }}">
 <meta property="og:description" content="{{ Str::limit(strip_tags($post->content), 150) }}">
-<meta property="og:image" content="{{ asset('storage/' . $post->image_path) }}">
+<meta property="og:image" content="{{ asset('storage/' . $post->thumbnail) }}">
 <meta property="og:type" content="article">
 @endsection
 
@@ -15,7 +15,8 @@
 <!-- Article Header Section -->
 <section class="bg-slate-900 pt-24 pb-32 relative overflow-hidden">
     <div class="absolute inset-0">
-        <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full h-full object-cover opacity-20 blur-sm">
+        <div class="absolute inset-0 bg-slate-900/80 z-10"></div>
+        <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" class="w-full h-full object-cover opacity-20 blur-sm">
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/40"></div>
     </div>
     
@@ -41,7 +42,9 @@
             <!-- Main Content -->
             <div class="lg:w-3/4">
                 <article class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                    <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full object-cover">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-8">
+                        <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" class="w-full object-cover">
+                    </div> 
                     
                     <div class="p-8 md:p-12 prose prose-lg prose-blue max-w-none text-gray-700">
                         {!! $post->content !!}
@@ -75,7 +78,7 @@
                         @foreach($recent_posts as $recent)
                         <div class="flex gap-4 group">
                             <a href="/berita/{{ $recent->slug }}" class="w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden">
-                                <img src="{{ Storage::url($recent->image_path) }}" alt="{{ $recent->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+                                <img src="{{ Storage::url($recent->thumbnail) }}" alt="{{ $recent->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
                             </a>
                             <div>
                                 <h4 class="font-bold text-sm text-dark leading-tight group-hover:text-blue-600 transition-colors">

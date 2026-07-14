@@ -53,7 +53,7 @@
                     @forelse($posts as $post)
                     <article class="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute top-4 left-4">
                                 <a href="/berita?kategori={{ $post->category->slug }}" class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-semibold rounded-full shadow-sm hover:bg-blue-600 hover:text-white transition-colors">
                                     {{ $post->category->name }}

@@ -185,7 +185,7 @@
             @foreach($recent_posts as $post)
             <article class="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
                 <div class="relative h-56 overflow-hidden">
-                    <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute top-4 left-4">
                         <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-semibold rounded-full shadow-sm">{{ $post->category->name }}</span>
                     </div>
@@ -271,7 +271,7 @@
             @foreach($achievements as $achievement)
             <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow text-center group">
                 <div class="w-20 h-20 rounded-full p-1 bg-white shadow-md mx-auto mb-4 relative z-10">
-                    <img src="{{ Storage::url($achievement->image_path) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover rounded-full">
+                    <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover rounded-full">
                 </div>
                 <h3 class="font-bold text-dark text-lg mb-1 leading-tight">{{ $achievement->title }}</h3>
                 <p class="text-blue-600 font-medium text-sm mb-2">{{ $achievement->level }}</p>
