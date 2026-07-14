@@ -96,10 +96,10 @@
                 @endif
                 
                 <!-- CTA Widget -->
-                <div class="w-full {{ $recent_posts->count() > 0 ? 'md:w-1/2' : 'md:w-2/3 max-w-lg' }} mx-auto bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center shadow-lg shadow-blue-500/20 flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold font-display mb-3">Informasi PPDB</h3>
-                    <p class="text-blue-100 text-sm mb-6 leading-relaxed">Pendaftaran peserta didik baru telah dibuka. Segera daftarkan putra-putri Anda untuk masa depan yang lebih baik.</p>
-                    <a href="/ppdb" class="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 hover:bg-gray-50 rounded-full font-bold text-sm transition-colors w-full sm:w-auto mx-auto shadow-sm">
+                <div class="w-full {{ $recent_posts->count() > 0 ? 'md:w-1/2' : 'md:w-2/3 md:max-w-lg' }} max-w-sm mx-auto bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl md:rounded-2xl p-5 md:p-8 text-white text-center shadow-lg shadow-blue-500/20 flex flex-col justify-center">
+                    <h3 class="text-lg md:text-2xl font-bold font-display mb-2 md:mb-3">Informasi PPDB</h3>
+                    <p class="text-blue-100 text-xs md:text-sm mb-4 md:mb-6 leading-relaxed">Pendaftaran peserta didik baru telah dibuka. Segera daftarkan putra-putri Anda untuk masa depan yang lebih baik.</p>
+                    <a href="/ppdb" class="inline-flex items-center justify-center px-6 py-2 md:px-8 md:py-3 bg-white text-blue-600 hover:bg-gray-50 rounded-full font-bold text-xs md:text-sm transition-colors w-full sm:w-auto mx-auto shadow-sm">
                         Daftar Sekarang
                     </a>
                 </div>
