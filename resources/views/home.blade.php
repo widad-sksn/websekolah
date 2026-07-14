@@ -269,14 +269,14 @@
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($achievements as $achievement)
-            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow text-center group">
-                <div class="w-20 h-20 rounded-full p-1 bg-white shadow-md mx-auto mb-4 relative z-10">
-                    <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover rounded-full">
+            <a href="/prestasi/{{ $achievement->id }}" class="block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow text-center group cursor-pointer">
+                <div class="w-24 h-24 rounded-2xl p-1 bg-white shadow-md mx-auto mb-4 relative z-10 overflow-hidden">
+                    <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover rounded-xl transform group-hover:scale-110 transition-transform duration-300">
                 </div>
-                <h3 class="font-bold text-dark text-lg mb-1 leading-tight">{{ $achievement->title }}</h3>
+                <h3 class="font-bold text-dark text-lg mb-1 leading-tight group-hover:text-blue-600 transition-colors">{{ $achievement->title }}</h3>
                 <p class="text-blue-600 font-medium text-sm mb-2">{{ $achievement->level }}</p>
                 <p class="text-gray-500 text-sm">{{ $achievement->year }}</p>
-            </div>
+            </a>
             @endforeach
         </div>
         

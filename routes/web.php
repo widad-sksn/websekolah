@@ -32,6 +32,7 @@ Route::get('/galeri', [GalleryFrontController::class, 'index'])->name('galeri.in
 Route::get('/galeri/{slug}', [GalleryFrontController::class, 'show'])->name('galeri.show');
 Route::get('/guru', [TeacherFrontController::class, 'index'])->name('guru.index');
 Route::get('/prestasi', [AchievementFrontController::class, 'index'])->name('prestasi.index');
+Route::get('/prestasi/{id}', [AchievementFrontController::class, 'show'])->name('prestasi.show');
 Route::get('/pengumuman', [AnnouncementFrontController::class, 'index'])->name('pengumuman.index');
 Route::get('/download', [DownloadFrontController::class, 'index'])->name('download.index');
 Route::view('/ppdb', 'ppdb.index')->name('ppdb.index');

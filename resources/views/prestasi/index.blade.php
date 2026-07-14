@@ -22,7 +22,7 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
             @forelse($achievements as $achievement)
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all">
+            <a href="/prestasi/{{ $achievement->id }}" class="block bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all cursor-pointer">
                 <div class="relative h-48 overflow-hidden">
                     <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute top-4 left-4">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-lg font-bold font-display text-dark mb-2">{{ $achievement->title }}</h3>
+                    <h3 class="text-lg font-bold font-display text-dark mb-2 group-hover:text-blue-600 transition-colors">{{ $achievement->title }}</h3>
                     @if($achievement->description)
                         <p class="text-gray-600 text-sm mb-4">{{ Str::limit($achievement->description, 80) }}</p>
                     @endif
@@ -41,7 +41,7 @@
                         Tahun {{ $achievement->year }}
                     </div>
                 </div>
-            </div>
+            </a>
             @empty
             <div class="col-span-full text-center py-12">
                 <p class="text-gray-500 text-lg">Belum ada data prestasi.</p>

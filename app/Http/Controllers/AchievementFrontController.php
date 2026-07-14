@@ -12,4 +12,11 @@ class AchievementFrontController extends Controller
         $achievements = Achievement::latest()->paginate(12);
         return view('prestasi.index', compact('achievements'));
     }
+
+    public function show($id)
+    {
+        $achievement = Achievement::findOrFail($id);
+        $recent_achievements = Achievement::where('id', '!=', $id)->latest()->take(4)->get();
+        return view('prestasi.show', compact('achievement', 'recent_achievements'));
+    }
 }
