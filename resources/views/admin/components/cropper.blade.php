@@ -145,4 +145,25 @@
             
         }, currentFileType, 0.85);
     };
+
+    // Auto-preview for cropped images
+    document.addEventListener('crop-applied', function(e) {
+        let input = e.target;
+        if (input.files && input.files[0]) {
+            let container = input.parentElement;
+            let preview = container.querySelector('.crop-preview-img');
+            
+            if (!preview) {
+                preview = document.createElement('img');
+                preview.className = 'crop-preview-img mt-3 rounded-xl shadow-sm border border-gray-200 object-cover';
+                preview.style.maxHeight = '200px';
+                preview.style.maxWidth = '100%';
+                
+                // insert after the input or its descriptive text
+                container.appendChild(preview);
+            }
+            
+            preview.src = URL.createObjectURL(input.files[0]);
+        }
+    });
 </script>
