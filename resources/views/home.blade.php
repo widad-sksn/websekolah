@@ -120,7 +120,7 @@
 @endif
 
 <!-- Welcome Section -->
-<section class="py-8 md:py-20 bg-white relative overflow-hidden">
+<section class="pt-6 pb-12 md:pt-10 md:pb-20 bg-white relative overflow-hidden">
     <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-blue-50 blur-3xl opacity-70"></div>
     <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-indigo-50 blur-3xl opacity-70"></div>
     
@@ -128,8 +128,8 @@
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
                 <div class="inline-block px-4 md:px-5 py-1.5 lg:py-2.5 rounded-xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] mb-4 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
-                    <span class="block text-gray-600 font-medium text-xs sm:text-sm md:text-base lg:text-lg text-center leading-relaxed lg:leading-tight">
-                        Selamat Datang di <br class="block sm:hidden"><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold">{{ config('app.name', 'SchoolCMS') }}</span>
+                    <span class="block text-blue-700 font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-center leading-relaxed lg:leading-tight">
+                        Selamat Datang di <br class="block sm:hidden">{{ config('app.name', 'SchoolCMS') }}
                     </span>
                 </div>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
