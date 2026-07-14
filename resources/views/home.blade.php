@@ -5,7 +5,7 @@
 <!-- Hero Slider Section -->
 @if($sliders->count() > 0)
 <div class="container mx-auto px-4 mt-6 md:mt-8 mb-12">
-    <div class="relative w-full aspect-video h-96 md:h-[32rem] lg:h-[36rem] xl:h-[40rem] overflow-hidden bg-slate-900 group rounded-3xl shadow-2xl ring-1 ring-gray-900/5" x-data="slider()">
+    <div class="relative w-full aspect-[12/5] overflow-hidden bg-slate-900 group rounded-3xl shadow-2xl ring-1 ring-gray-900/5" x-data="slider()">
         <!-- Slides -->
         <div class="relative h-full">
             @foreach($sliders as $index => $slider)
