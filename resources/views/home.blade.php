@@ -132,7 +132,7 @@
                         Selamat Datang di <br class="block sm:hidden"><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-extrabold">{{ config('app.name', 'SchoolCMS') }}</span>
                     </span>
                 </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
                     {{ $settings['school_motto'] ?? 'Mendidik Generasi Pemimpin Masa Depan' }}
                 </h2>
 
