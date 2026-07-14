@@ -26,10 +26,7 @@
                     Tampilan & Logo
                 </button>
                 <button type="button" @click="tab = 'sistem'" :class="tab === 'sistem' ? 'border-primary text-primary' : 'border-transparent text-muted hover:text-dark hover:border-gray-300'" class="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">
-                    Sistem
-                </button>
-                <button type="button" @click="tab = 'ppdb'" :class="tab === 'ppdb' ? 'border-primary text-primary' : 'border-transparent text-muted hover:text-dark hover:border-gray-300'" class="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">
-                    Informasi PPDB
+                    Sistem & Informasi PPDB
                 </button>
             </div>
 
@@ -192,12 +189,11 @@
                         <label for="ppdb_date" class="block text-sm font-medium text-dark mb-1">Periode Pendaftaran</label>
                         <input type="text" name="ppdb_date" id="ppdb_date" value="{{ $settings['ppdb_date'] ?? 'Januari - Juli '.date('Y') }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" placeholder="Contoh: 1 Juni - 31 Juli 2026">
                     </div>
-                </div>
-            </div>
-            
-            <!-- Tab: PPDB -->
-            <div x-show="tab === 'ppdb'" class="space-y-6" style="display: none;">
-                <div class="grid grid-cols-1 gap-6">
+                    
+                    <div class="mt-4 border-t pt-4">
+                        <h3 class="font-bold text-dark text-lg mb-4">Pengaturan Informasi PPDB</h3>
+                    </div>
+                    
                     <div>
                         <label for="ppdb_whatsapp_number" class="block text-sm font-medium text-dark mb-1">Nomor WhatsApp Panitia PPDB (Gunakan awalan kode negara tanpa +, contoh: 628123...)</label>
                         <input type="text" name="ppdb_whatsapp_number" id="ppdb_whatsapp_number" value="{{ $settings['ppdb_whatsapp_number'] ?? '6283832286799' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
