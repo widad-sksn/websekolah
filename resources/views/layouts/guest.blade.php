@@ -38,9 +38,6 @@
                         Selamat Datang di Portal <span class="text-blue-300">{{ config('app.name', 'SchoolCMS') }}</span>
                     </h1>
                     
-                    <p class="text-blue-100 text-lg leading-relaxed">
-                        Sistem Informasi Manajemen Sekolah Terpadu. Silakan masuk untuk mengakses dasbor akademik, mengelola data, dan melihat laporan.
-                    </p>
                 </div>
                 
                 <!-- Overlay Pattern -->
