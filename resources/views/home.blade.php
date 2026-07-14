@@ -127,8 +127,14 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
-                <div class="inline-block px-4 py-1.5 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 font-medium text-sm mb-2 shadow-sm">
-                    Selamat Datang di {{ config('app.name', 'SchoolCMS') }}
+                <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-blue-50/80 to-indigo-50/80 border border-blue-100/80 backdrop-blur-sm shadow-sm mb-4 transition-all duration-300 hover:shadow-md hover:bg-blue-50">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+                    </span>
+                    <span class="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent font-bold tracking-wide text-sm uppercase">
+                        Selamat Datang di {{ config('app.name', 'SchoolCMS') }}
+                    </span>
                 </div>
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
                     {{ $settings['school_motto'] ?? 'Mendidik Generasi Pemimpin Masa Depan' }}
