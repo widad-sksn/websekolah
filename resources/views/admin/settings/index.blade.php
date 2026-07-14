@@ -107,7 +107,7 @@
             <!-- Tab: Tampilan -->
             <div x-show="tab === 'tampilan'" class="space-y-6" style="display: none;">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
+                    <div class="md:col-span-2">
                         <label class="block text-sm font-medium text-dark mb-1">Logo Sekolah</label>
                         @if(!empty($settings['school_logo']))
                             <div class="mb-3">
@@ -115,16 +115,6 @@
                             </div>
                         @endif
                         <input type="file" name="school_logo" accept="image/*" onchange="window.initCropper(this, 1)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-dark mb-1">Favicon</label>
-                        @if(!empty($settings['school_favicon']))
-                            <div class="mb-3">
-                                <img src="{{ Storage::url($settings['school_favicon']) }}" alt="Favicon" class="h-10 object-contain">
-                            </div>
-                        @endif
-                        <input type="file" name="school_favicon" accept="image/*" onchange="window.initCropper(this, 1)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
                     </div>
 
                     <div class="md:col-span-2">
