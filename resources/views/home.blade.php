@@ -19,7 +19,10 @@
                  class="absolute inset-0"
                  style="display: none;">
                 
-                <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-cover object-top">
+                <div class="absolute inset-0">
+                    <img src="{{ Storage::url($slider->image) }}" alt="" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110">
+                    <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-contain">
+                </div>
                 
                 <!-- Content -->
                 <div class="absolute inset-0 flex items-center">
