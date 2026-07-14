@@ -150,7 +150,7 @@
                     @endif
                 </div>
 
-                <p class="text-gray-600 leading-relaxed text-lg">
+                <p class="text-gray-600 leading-relaxed text-lg text-justify lg:text-left">
                     {{ $settings['school_description'] ?? 'Kami berkomitmen untuk memberikan pendidikan berkualitas tinggi yang mengembangkan potensi intelektual, emosional, dan spiritual setiap siswa. Dengan fasilitas modern dan tenaga pendidik profesional, kami siap mengantarkan anak Anda menuju kesuksesan.' }}
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
