@@ -381,39 +381,39 @@
 @endif
 
 <!-- Quick Access Cards (Moved below Prestasi, smaller) -->
-<section class="py-12 bg-gray-50">
+<section class="py-8 md:py-12 bg-gray-50">
     @php
         $ppdbOpen = ($settings['ppdb_status'] ?? '1') == '1';
     @endphp
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 {{ $ppdbOpen ? 'md:grid-cols-3' : 'md:grid-cols-2 max-w-4xl mx-auto' }} gap-4 md:gap-6">
-            <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-5 md:p-6 text-white shadow-lg shadow-blue-500/20 transform hover:-translate-y-1 transition-transform">
-                <svg class="w-8 h-8 mb-4 text-blue-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
-                <h3 class="text-xl font-bold font-display mb-2">Berita & Artikel</h3>
-                <p class="text-blue-100 text-sm mb-4 line-clamp-2">Tetap update dengan informasi dan kegiatan terbaru dari sekolah kami.</p>
-                <a href="/berita" class="inline-flex items-center text-xs md:text-sm font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-colors">
-                    Baca Berita <svg class="w-4 h-4 ml-1 md:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-            </div>
+        <div class="grid {{ $ppdbOpen ? 'grid-cols-3' : 'grid-cols-2 max-w-4xl mx-auto' }} gap-2 md:gap-6">
+            <a href="/berita" class="block bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl md:rounded-2xl p-3 md:p-6 text-white shadow-lg shadow-blue-500/20 transform hover:-translate-y-1 transition-transform text-center md:text-left">
+                <svg class="w-6 h-6 md:w-8 md:h-8 mb-2 md:mb-4 mx-auto md:mx-0 text-blue-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                <h3 class="text-xs md:text-xl font-bold font-display mb-0 md:mb-2 leading-tight">Berita<span class="hidden md:inline"> & Artikel</span></h3>
+                <p class="hidden md:block text-blue-100 text-sm mb-4 line-clamp-2">Tetap update dengan informasi dan kegiatan terbaru dari sekolah kami.</p>
+                <div class="hidden md:inline-flex items-center text-sm font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg transition-colors">
+                    Baca Berita <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+            </a>
             @if($ppdbOpen)
-            <div class="bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-2xl p-5 md:p-6 text-white shadow-lg shadow-indigo-500/20 transform hover:-translate-y-1 transition-transform">
-                <svg class="w-8 h-8 mb-4 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                <h3 class="text-xl font-bold font-display mb-2">Info PPDB</h3>
-                <p class="text-indigo-100 text-sm mb-4 line-clamp-3">Penerimaan Peserta Didik Baru Tahun Ajaran {{ $settings['ppdb_year'] ?? date('Y').'/'.(date('Y')+1) }}.<br><span class="text-xs opacity-80 mt-1 block">{{ $settings['ppdb_date'] ?? 'Januari - Juli '.date('Y') }}</span></p>
-                <a href="/ppdb" class="inline-flex items-center text-xs md:text-sm font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-colors">
-                    Daftar Sekarang <svg class="w-4 h-4 ml-1 md:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-            </div>
+            <a href="/ppdb" class="block bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl md:rounded-2xl p-3 md:p-6 text-white shadow-lg shadow-indigo-500/20 transform hover:-translate-y-1 transition-transform text-center md:text-left">
+                <svg class="w-6 h-6 md:w-8 md:h-8 mb-2 md:mb-4 mx-auto md:mx-0 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <h3 class="text-xs md:text-xl font-bold font-display mb-0 md:mb-2 leading-tight">PPDB<span class="hidden md:inline"> Online</span></h3>
+                <p class="hidden md:block text-indigo-100 text-sm mb-4 line-clamp-3">Penerimaan Peserta Didik Baru Tahun Ajaran {{ $settings['ppdb_year'] ?? date('Y').'/'.(date('Y')+1) }}.<br><span class="text-xs opacity-80 mt-1 block">{{ $settings['ppdb_date'] ?? 'Januari - Juli '.date('Y') }}</span></p>
+                <div class="hidden md:inline-flex items-center text-sm font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg transition-colors">
+                    Daftar Sekarang <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+            </a>
             @endif
             
-            <div class="bg-gradient-to-br from-teal-500 to-teal-700 rounded-2xl p-5 md:p-6 text-white shadow-lg shadow-teal-500/20 transform hover:-translate-y-1 transition-transform">
-                <svg class="w-8 h-8 mb-4 text-teal-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <h3 class="text-xl font-bold font-display mb-2">Galeri Kegiatan</h3>
-                <p class="text-teal-100 text-sm mb-4 line-clamp-2">Lihat berbagai momen seru dan dokumentasi kegiatan belajar mengajar.</p>
-                <a href="/galeri" class="inline-flex items-center text-xs md:text-sm font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-colors">
-                    Lihat Galeri <svg class="w-4 h-4 ml-1 md:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-            </div>
+            <a href="/galeri" class="block bg-gradient-to-br from-teal-500 to-teal-700 rounded-xl md:rounded-2xl p-3 md:p-6 text-white shadow-lg shadow-teal-500/20 transform hover:-translate-y-1 transition-transform text-center md:text-left">
+                <svg class="w-6 h-6 md:w-8 md:h-8 mb-2 md:mb-4 mx-auto md:mx-0 text-teal-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <h3 class="text-xs md:text-xl font-bold font-display mb-0 md:mb-2 leading-tight">Galeri<span class="hidden md:inline"> Kegiatan</span></h3>
+                <p class="hidden md:block text-teal-100 text-sm mb-4 line-clamp-2">Lihat berbagai momen seru dan dokumentasi kegiatan belajar mengajar.</p>
+                <div class="hidden md:inline-flex items-center text-sm font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg transition-colors">
+                    Lihat Galeri <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+            </a>
         </div>
     </div>
 </section>
