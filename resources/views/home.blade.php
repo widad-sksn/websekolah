@@ -275,7 +275,7 @@
                 </div>
                 <h3 class="font-bold text-dark text-lg mb-1 leading-tight">{{ $achievement->title }}</h3>
                 <p class="text-blue-600 font-medium text-sm mb-2">{{ $achievement->level }}</p>
-                <p class="text-gray-500 text-sm">{{ $achievement->date->format('Y') }}</p>
+                <p class="text-gray-500 text-sm">{{ $achievement->year }}</p>
             </div>
             @endforeach
         </div>
