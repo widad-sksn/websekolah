@@ -202,7 +202,7 @@
             <div class="flex transition-transform duration-500 ease-in-out -mx-2 md:-mx-4" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
                 @foreach($recent_posts as $post)
                 <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-2 md:px-4">
-                    <a href="/berita/{{ $post->slug }}" class="relative block h-[20rem] md:h-[26rem] rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
+                    <a href="/berita/{{ $post->slug }}" class="relative block h-[20rem] md:h-auto md:aspect-square rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
                         <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         
                         <!-- Gradient Overlay -->
@@ -309,7 +309,7 @@
             <div class="flex transition-transform duration-500 ease-in-out -mx-2 md:-mx-4" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
                 @foreach($achievements as $achievement)
                 <div class="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-2 md:px-4">
-                    <a href="/prestasi/{{ $achievement->id }}" class="relative block h-[20rem] md:h-[26rem] rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
+                    <a href="/prestasi/{{ $achievement->id }}" class="relative block h-[20rem] md:h-auto md:aspect-square rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
                         <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         
                         <!-- Gradient Overlay -->
