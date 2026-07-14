@@ -27,7 +27,7 @@
         <div class="flex flex-col lg:flex-row gap-8">
             
             <!-- Main Content -->
-            <div class="lg:w-3/4">
+            <div class="lg:w-3/4 order-2 lg:order-1">
                 
                 <!-- Search & Filter Summary -->
                 <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
@@ -94,7 +94,7 @@
             </div>
 
             <!-- Sidebar -->
-            <div class="lg:w-1/4 space-y-8">
+            <div class="lg:w-1/4 space-y-8 order-1 lg:order-2">
                 <!-- Search Widget -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <h3 class="text-lg font-bold font-display text-dark mb-4">Cari Berita</h3>
