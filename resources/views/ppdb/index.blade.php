@@ -30,8 +30,8 @@
                 <div>
                     <h2 class="text-2xl font-bold font-display text-dark mb-6">Informasi Pendaftaran</h2>
                     
-                    <div class="space-y-6">
-                        <div class="flex">
+                    <div class="prose prose-sm max-w-none text-gray-600">
+                        {!! $settings['ppdb_info_text'] ?? '<div class="flex">
                             <div class="flex-shrink-0 mt-1">
                                 <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">1</div>
                             </div>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex">
+                        <div class="flex mt-6">
                             <div class="flex-shrink-0 mt-1">
                                 <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">2</div>
                             </div>
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex">
+                        <div class="flex mt-6">
                             <div class="flex-shrink-0 mt-1">
                                 <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">3</div>
                             </div>
@@ -68,7 +68,7 @@
                                 <h4 class="text-lg font-bold text-dark mb-1">Jadwal PPDB</h4>
                                 <p class="text-gray-600 text-sm">Pendaftaran dibuka setiap hari kerja pada jam operasional (08.00 - 14.00 WIB) selama kuota masih tersedia.</p>
                             </div>
-                        </div>
+                        </div>' !!}
                     </div>
                 </div>
                 
@@ -80,8 +80,9 @@
                     <p class="text-gray-600 text-sm mb-8">Pendaftaran kini lebih mudah! Hubungi panitia PPDB kami secara langsung melalui WhatsApp untuk informasi dan pendaftaran.</p>
                     
                     @php
-                        $waNumber = '6283832286799'; // Should ideally come from settings
-                        $waText = urlencode('Halo Panitia PPDB ' . config('app.name') . ', saya ingin mendapatkan informasi lebih lanjut mengenai pendaftaran peserta didik baru.');
+                        $waNumber = $settings['ppdb_whatsapp_number'] ?? '6283832286799';
+                        $waTextRaw = $settings['ppdb_whatsapp_text'] ?? 'Halo Panitia PPDB ' . config('app.name') . ', saya ingin mendapatkan informasi lebih lanjut mengenai pendaftaran peserta didik baru.';
+                        $waText = urlencode($waTextRaw);
                     @endphp
                     
                     <a href="https://wa.me/{{ $waNumber }}?text={{ $waText }}" target="_blank" class="inline-flex items-center justify-center px-6 py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-green-500/30 hover:-translate-y-1">

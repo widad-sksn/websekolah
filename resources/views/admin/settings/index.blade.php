@@ -28,6 +28,9 @@
                 <button type="button" @click="tab = 'sistem'" :class="tab === 'sistem' ? 'border-primary text-primary' : 'border-transparent text-muted hover:text-dark hover:border-gray-300'" class="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">
                     Sistem
                 </button>
+                <button type="button" @click="tab = 'ppdb'" :class="tab === 'ppdb' ? 'border-primary text-primary' : 'border-transparent text-muted hover:text-dark hover:border-gray-300'" class="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">
+                    Informasi PPDB
+                </button>
             </div>
 
             <!-- Tab: Identitas -->
@@ -182,6 +185,60 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Tab: PPDB -->
+            <div x-show="tab === 'ppdb'" class="space-y-6" style="display: none;">
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label for="ppdb_whatsapp_number" class="block text-sm font-medium text-dark mb-1">Nomor WhatsApp Panitia PPDB (Gunakan awalan kode negara tanpa +, contoh: 628123...)</label>
+                        <input type="text" name="ppdb_whatsapp_number" id="ppdb_whatsapp_number" value="{{ $settings['ppdb_whatsapp_number'] ?? '6283832286799' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="ppdb_whatsapp_text" class="block text-sm font-medium text-dark mb-1">Teks Pesan Default WhatsApp</label>
+                        <input type="text" name="ppdb_whatsapp_text" id="ppdb_whatsapp_text" value="{{ $settings['ppdb_whatsapp_text'] ?? 'Halo Panitia PPDB, saya ingin mendapatkan informasi lebih lanjut mengenai pendaftaran peserta didik baru.' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="ppdb_info_text" class="block text-sm font-medium text-dark mb-1">Teks Informasi Pendaftaran</label>
+                        <textarea name="ppdb_info_text" id="ppdb_info_text" rows="10" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">{{ $settings['ppdb_info_text'] ?? '<div class="flex">
+    <div class="flex-shrink-0 mt-1">
+        <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">1</div>
+    </div>
+    <div class="ml-4">
+        <h4 class="text-lg font-bold text-dark mb-1">Persyaratan Dokumen</h4>
+        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+            <li>Fotokopi Ijazah / SKL legalisir (2 lembar)</li>
+            <li>Fotokopi Akte Kelahiran (2 lembar)</li>
+            <li>Fotokopi Kartu Keluarga (2 lembar)</li>
+            <li>Pas foto ukuran 3x4 dan 4x6 (masing-masing 4 lembar)</li>
+        </ul>
+    </div>
+</div>
+<div class="flex mt-6">
+    <div class="flex-shrink-0 mt-1">
+        <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">2</div>
+    </div>
+    <div class="ml-4">
+        <h4 class="text-lg font-bold text-dark mb-1">Jalur Pendaftaran</h4>
+        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+            <li>Jalur Prestasi (Akademik & Non-Akademik)</li>
+            <li>Jalur Reguler / Umum</li>
+            <li>Jalur Afirmasi</li>
+        </ul>
+    </div>
+</div>
+<div class="flex mt-6">
+    <div class="flex-shrink-0 mt-1">
+        <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">3</div>
+    </div>
+    <div class="ml-4">
+        <h4 class="text-lg font-bold text-dark mb-1">Jadwal PPDB</h4>
+        <p class="text-gray-600 text-sm">Pendaftaran dibuka setiap hari kerja pada jam operasional (08.00 - 14.00 WIB) selama kuota masih tersedia.</p>
+    </div>
+</div>' }}</textarea>
+                        <p class="text-xs text-muted mt-2">Gunakan editor untuk memformat tampilan informasi. Anda dapat menggunakan list dan penomoran dari editor.</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -193,3 +250,16 @@
     </form>
 </div>
 @endsection
+
+@push('scripts')
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ppdb_info_text'), {
+            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo' ]
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+@endpush
