@@ -170,13 +170,23 @@
 <!-- Latest News -->
 @if($recent_posts->count() > 0)
 <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="mb-12 text-center md:text-left">
-            <h2 class="text-3xl font-bold font-display text-dark mb-3">Berita & Artikel Terbaru</h2>
-            <p class="text-gray-600">Informasi terkini seputar kegiatan dan perkembangan sekolah.</p>
+    <div class="container mx-auto px-4" x-data="newsSlider()" x-init="start()">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
+            <div class="text-center md:text-left mb-6 md:mb-0">
+                <h2 class="text-3xl font-bold font-display text-dark mb-3">Berita & Artikel Terbaru</h2>
+                <p class="text-gray-600">Informasi terkini seputar kegiatan dan perkembangan sekolah.</p>
+            </div>
+            <div class="flex space-x-3">
+                <button @click="prev()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button @click="next()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
         </div>
 
-        <div x-data="newsSlider()" x-init="start()" class="relative overflow-hidden w-full py-4 -mx-4 px-4">
+        <div class="relative overflow-hidden w-full py-4 -mx-4 px-4">
             <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
                 @foreach($recent_posts as $post)
                 <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-4">
@@ -209,15 +219,6 @@
                 @endforeach
             </div>
             
-            <!-- Controls -->
-            <div class="flex justify-center mt-8 space-x-2">
-                <button @click="prev()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <button @click="next()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-            </div>
         </div>
 
         <script>
@@ -316,13 +317,23 @@
 <!-- Achievements Section -->
 @if($achievements->count() > 0)
 <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold font-display text-dark mb-4">Prestasi Gemilang</h2>
-            <p class="text-gray-600">Bukti komitmen kami dalam membina dan mengembangkan bakat serta potensi siswa dalam berbagai bidang.</p>
+    <div class="container mx-auto px-4" x-data="achievementSlider()" x-init="start()">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
+            <div class="text-center md:text-left mb-6 md:mb-0 max-w-2xl">
+                <h2 class="text-3xl font-bold font-display text-dark mb-4">Prestasi Gemilang</h2>
+                <p class="text-gray-600">Bukti komitmen kami dalam membina dan mengembangkan bakat serta potensi siswa dalam berbagai bidang.</p>
+            </div>
+            <div class="flex space-x-3">
+                <button @click="prev()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button @click="next()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
         </div>
         
-        <div x-data="achievementSlider()" x-init="start()" class="relative overflow-hidden w-full py-4 -mx-4 px-4">
+        <div class="relative overflow-hidden w-full py-4 -mx-4 px-4">
             <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
                 @foreach($achievements as $achievement)
                 <div class="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-3">
@@ -348,15 +359,6 @@
                 @endforeach
             </div>
             
-            <!-- Controls -->
-            <div class="flex justify-center mt-8 space-x-2">
-                <button @click="prev()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <button @click="next()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-            </div>
         </div>
         
         <script>
