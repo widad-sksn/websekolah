@@ -56,7 +56,7 @@ class GalleryController extends Controller
 
                 GalleryImage::create([
                     'gallery_id' => $gallery->id,
-                    'image_path' => $path
+                    'image' => $path
                 ]);
             }
         }
@@ -102,7 +102,7 @@ class GalleryController extends Controller
 
                 GalleryImage::create([
                     'gallery_id' => $gallery->id,
-                    'image_path' => $path
+                    'image' => $path
                 ]);
             }
         }
@@ -113,7 +113,7 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         foreach ($gallery->images as $image) {
-            Storage::disk('public')->delete($image->image_path);
+            Storage::disk('public')->delete($image->image);
         }
         $gallery->delete();
         return redirect()->route('admin.galleries.index')->with('success', 'Galeri berhasil dihapus.');
@@ -121,7 +121,7 @@ class GalleryController extends Controller
 
     public function destroyImage(GalleryImage $image)
     {
-        Storage::disk('public')->delete($image->image_path);
+        Storage::disk('public')->delete($image->image);
         $image->delete();
         return back()->with('success', 'Foto berhasil dihapus dari galeri.');
     }

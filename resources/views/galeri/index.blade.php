@@ -26,7 +26,7 @@
                 <!-- Cover Image (First Image if exists) -->
                 <div class="relative h-64 overflow-hidden bg-gray-200">
                     @if($gallery->images->count() > 0)
-                        <img src="{{ Storage::url($gallery->images->first()->image_path) }}" alt="{{ $gallery->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <img src="{{ Storage::url($gallery->images->first()->image) }}" alt="{{ $gallery->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                     @endif
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <span class="text-white text-sm font-medium flex items-center">

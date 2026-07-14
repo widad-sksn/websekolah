@@ -55,7 +55,7 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
                     @foreach($gallery->images as $image)
                     <div class="relative group rounded-xl overflow-hidden border border-border aspect-w-1 aspect-h-1 bg-gray-100">
-                        <img src="{{ Storage::url($image->image_path) }}" alt="Gallery Image" class="object-cover w-full h-full">
+                        <img src="{{ Storage::url($image->image) }}" alt="Gallery Image" class="object-cover w-full h-full">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                             <form action="{{ route('admin.galleries.images.destroy', $image->id) }}" method="POST" onsubmit="return confirm('Hapus foto ini dari album?');">
                                 @csrf
