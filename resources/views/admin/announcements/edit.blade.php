@@ -23,6 +23,7 @@
                 <div>
                     <label for="content" class="block text-sm font-medium text-dark mb-1">Isi Pengumuman</label>
                     <textarea name="content" id="content" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 h-96">{{ old('content', $announcement->content) }}</textarea>
+                    <p class="mt-2 text-xs text-gray-500">💡 <strong>Saran:</strong> Jika menyisipkan gambar di dalam teks, pastikan ukurannya proporsional agar rapi saat dibaca pengunjung.</p>
                     @error('content') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
             </div>

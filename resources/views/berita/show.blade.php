@@ -37,16 +37,16 @@
 <section class="py-12 md:py-20 relative z-20">
     <div class="container mx-auto px-4">
         
-        <div class="flex flex-col lg:flex-row gap-8">
+        <div class="max-w-4xl mx-auto space-y-12">
             
             <!-- Main Content -->
-            <div class="lg:w-3/4">
+            <div>
                 <article class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                     <div class="bg-gray-50 border-b border-gray-100 p-4 md:p-8 text-center">
                         <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" class="inline-block max-w-full w-auto max-h-[500px] rounded-2xl shadow-sm object-contain mx-auto">
                     </div> 
                     
-                    <div class="p-6 md:p-12 prose prose-base md:prose-lg prose-blue max-w-none text-gray-700">
+                    <div class="p-6 md:p-12 prose prose-base md:prose-lg prose-blue max-w-none text-gray-700 mx-auto text-center md:text-left">
                         {!! $post->content !!}
                     </div>
                     
@@ -68,8 +68,8 @@
                 </article>
             </div>
 
-            <!-- Sidebar -->
-            <div class="lg:w-1/4 space-y-8">
+            <!-- Bottom Widgets (formerly Sidebar) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Recent Posts Widget -->
                 @if($recent_posts->count() > 0)
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
@@ -96,9 +96,9 @@
                 @endif
                 
                 <!-- CTA Widget -->
-                <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-6 text-white text-center shadow-lg shadow-blue-500/20">
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-6 text-white text-center shadow-lg shadow-blue-500/20 flex flex-col justify-center">
                     <h3 class="text-xl font-bold font-display mb-2">Informasi PPDB</h3>
-                    <p class="text-blue-100 text-sm mb-6">Pendaftaran peserta didik baru telah dibuka. Segera daftarkan putra-putri Anda.</p>
+                    <p class="text-blue-100 text-sm mb-6">Pendaftaran peserta didik baru telah dibuka. Segera daftarkan putra-putri Anda untuk masa depan yang lebih baik.</p>
                     <a href="/ppdb" class="inline-flex items-center justify-center px-6 py-2.5 bg-white text-blue-600 hover:bg-gray-50 rounded-full font-bold text-sm transition-colors w-full">
                         Daftar Sekarang
                     </a>

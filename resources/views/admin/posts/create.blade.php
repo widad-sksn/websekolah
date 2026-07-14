@@ -73,6 +73,7 @@
                 <div class="bg-gray-50 rounded-xl p-5 border border-border">
                     <h3 class="font-semibold text-dark mb-4">Gambar Sampul</h3>
                     <input type="file" name="thumbnail" accept="image/*" onchange="window.initCropper(this, 4/3)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
+                    <p class="mt-2 text-xs text-gray-500">💡 <strong>Saran Ukuran:</strong> Gunakan gambar dengan rasio 4:3 (contoh: 800x600 px) agar tampilan tetap rapi.</p>
                     <p class="mt-2 text-xs text-muted">Format: JPG, PNG, WEBP. Maks: 50MB. <br><strong class="text-blue-600">Rekomendasi: 800x600px (4:3) atau 16:9.</strong> Ukuran bebas tetap bisa diupload, namun sistem otomatis melakukan crop.</p>
                     @error('thumbnail') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
