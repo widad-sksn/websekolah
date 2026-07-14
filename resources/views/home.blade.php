@@ -132,7 +132,7 @@
                         {{ $settings['welcome_greeting'] ?? 'Selamat Datang di' }}
                     </div>
                     <div class="text-[24px] lg:text-[28px] font-extrabold text-[#0F172A] leading-[1.2]">
-                        {{ $settings['school_name'] ?? 'MTs Muhammadiyah 32' }} {{ $settings['school_district'] ?? 'Sumberagung' }}
+                        {{ $settings['school_name'] ?? 'MTs Muhammadiyah 32' }}
                     </div>
                 </div>
 
