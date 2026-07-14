@@ -127,39 +127,7 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
-                <style>
-                @keyframes fadeUpWelcome {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                @keyframes gentleFloatWelcome {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-2px); }
-                }
-                .animate-fade-up-welcome {
-                    animation: fadeUpWelcome 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-                }
-                .animate-float-welcome {
-                    animation: gentleFloatWelcome 6s ease-in-out infinite;
-                }
-                </style>
-                <div class="relative max-w-[280px] md:max-w-[340px] mx-auto lg:mx-0 w-full mt-[24px] mb-[28px] animate-fade-up-welcome animate-float-welcome group">
-                    <!-- Subtle blue radial glow -->
-                    <div class="absolute inset-0 bg-[#2563EB] opacity-[0.05] blur-[24px] rounded-[18px] scale-110 -z-10 transition-opacity duration-500 group-hover:opacity-[0.08]"></div>
-                    
-                    <!-- Glassmorphism Card -->
-                    <div class="bg-[rgba(255,255,255,0.82)] backdrop-blur-[12px] border border-[rgba(59,130,246,0.10)] rounded-[18px] px-[24px] py-[16px] shadow-[0_8px_24px_rgba(37,99,235,0.08)] text-center flex flex-col items-center transition-all duration-300 hover:shadow-[0_12px_32px_rgba(37,99,235,0.10)] hover:-translate-y-0.5">
-                        <div class="text-[13px] font-semibold text-[#2563EB] tracking-[0.3px] mb-[4px]">
-                            🏫 {{ $settings['welcome_greeting'] ?? 'Selamat Datang di' }}
-                        </div>
-                        <div class="text-[22px] md:text-[28px] font-extrabold text-[#0F172A] leading-[1.15] mb-[4px]">
-                            {{ $settings['school_name'] ?? 'MTs Muhammadiyah 32' }}
-                        </div>
-                        <div class="text-[16px] font-semibold text-[#2563EB]">
-                            {{ $settings['school_district'] ?? 'Sumberagung' }}
-                        </div>
-                    </div>
-                </div>
+
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
                     {{ $settings['school_motto'] ?? 'Mendidik Generasi Pemimpin Masa Depan' }}
                 </h2>
