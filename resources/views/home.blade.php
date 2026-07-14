@@ -171,17 +171,17 @@
 @if($recent_posts->count() > 0)
 <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4" x-data="newsSlider()" x-init="start()">
-        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
-            <div class="text-center md:text-left mb-6 md:mb-0">
-                <h2 class="text-3xl font-bold font-display text-dark mb-3">Berita & Artikel Terbaru</h2>
-                <p class="text-gray-600">Informasi terkini seputar kegiatan dan perkembangan sekolah.</p>
+        <div class="flex justify-between items-end mb-8 md:mb-12">
+            <div class="text-left w-2/3 pr-4">
+                <h2 class="text-2xl md:text-3xl font-bold font-display text-dark mb-2 md:mb-3">Berita & Artikel</h2>
+                <p class="text-sm md:text-base text-gray-600 line-clamp-2 md:line-clamp-none">Informasi terkini seputar kegiatan dan perkembangan sekolah.</p>
             </div>
-            <div class="flex space-x-3">
-                <button @click="prev()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <div class="flex space-x-2 md:space-x-3 pb-1">
+                <button @click="prev()" class="w-9 h-9 md:w-11 md:h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button @click="next()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <button @click="next()" class="w-9 h-9 md:w-11 md:h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
         </div>
@@ -318,17 +318,17 @@
 @if($achievements->count() > 0)
 <section class="py-20 bg-white">
     <div class="container mx-auto px-4" x-data="achievementSlider()" x-init="start()">
-        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
-            <div class="text-center md:text-left mb-6 md:mb-0 max-w-2xl">
-                <h2 class="text-3xl font-bold font-display text-dark mb-4">Prestasi Gemilang</h2>
-                <p class="text-gray-600">Bukti komitmen kami dalam membina dan mengembangkan bakat serta potensi siswa dalam berbagai bidang.</p>
+        <div class="flex justify-between items-end mb-8 md:mb-12">
+            <div class="text-left w-2/3 pr-4 max-w-2xl">
+                <h2 class="text-2xl md:text-3xl font-bold font-display text-dark mb-2 md:mb-4">Prestasi Gemilang</h2>
+                <p class="text-sm md:text-base text-gray-600 line-clamp-2 md:line-clamp-none">Bukti komitmen kami dalam membina dan mengembangkan bakat serta potensi siswa dalam berbagai bidang.</p>
             </div>
-            <div class="flex space-x-3">
-                <button @click="prev()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <div class="flex space-x-2 md:space-x-3 pb-1">
+                <button @click="prev()" class="w-9 h-9 md:w-11 md:h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button @click="next()" class="w-11 h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <button @click="next()" class="w-9 h-9 md:w-11 md:h-11 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
         </div>
