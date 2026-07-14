@@ -153,10 +153,10 @@
                             🏫 Selamat Datang di
                         </div>
                         <div class="text-[22px] md:text-[28px] font-extrabold text-[#0F172A] leading-[1.15] mb-[4px]">
-                            MTs Muhammadiyah 32
+                            {{ $settings['school_name'] ?? 'MTs Muhammadiyah 32' }}
                         </div>
                         <div class="text-[16px] font-semibold text-[#2563EB]">
-                            Sumberagung
+                            {{ $settings['school_district'] ?? 'Sumberagung' }}
                         </div>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                 </div>
 
                 <p class="text-gray-600 leading-relaxed text-lg">
-                    Kami berkomitmen untuk memberikan pendidikan berkualitas tinggi yang mengembangkan potensi intelektual, emosional, dan spiritual setiap siswa. Dengan fasilitas modern dan tenaga pendidik profesional, kami siap mengantarkan anak Anda menuju kesuksesan.
+                    {{ $settings['school_description'] ?? 'Kami berkomitmen untuk memberikan pendidikan berkualitas tinggi yang mengembangkan potensi intelektual, emosional, dan spiritual setiap siswa. Dengan fasilitas modern dan tenaga pendidik profesional, kami siap mengantarkan anak Anda menuju kesuksesan.' }}
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                     <div class="flex items-center justify-center lg:justify-start space-x-4 text-left">
