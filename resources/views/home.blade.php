@@ -127,8 +127,9 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
-                <div class="inline-block px-4 md:px-5 py-1.5 lg:py-2.5 rounded-xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] mb-4 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
-                    <span class="block text-blue-700 font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-center leading-relaxed lg:leading-tight">
+                <div class="inline-block px-4 md:px-5 py-1.5 lg:py-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 shadow-sm mb-4 transition-all duration-300 hover:shadow-md hover:border-blue-300 hover:-translate-y-1 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                    <span class="block relative z-10 text-blue-700 font-bold text-xs sm:text-sm md:text-base lg:text-lg text-center leading-relaxed lg:leading-tight tracking-wide">
                         Selamat Datang di <br class="block sm:hidden">{{ config('app.name', 'SchoolCMS') }}
                     </span>
                 </div>
