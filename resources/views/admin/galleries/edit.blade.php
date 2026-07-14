@@ -28,9 +28,12 @@
 
                 <div>
                     <label class="block text-sm font-medium text-dark mb-1">Upload Tambahan Foto</label>
-                    <input type="file" name="images[]" multiple accept="image/*" onchange="window.initCropper(this, 16/9)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
+                    <input type="file" id="images" name="images[]" multiple accept="image/*" onchange="window.initCropper(this, 16/9)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
                     <p class="mt-2 text-xs text-muted">Bisa pilih lebih dari satu foto sekaligus. <br><strong class="text-blue-600">Rekomendasi: 1920x1080px (16:9).</strong> Ukuran bebas tetap bisa diupload, namun sistem otomatis melakukan crop.</p>
                     @error('images.*') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
+                    
+                    <!-- Preview Container -->
+                    <div id="image-previews" class="mt-4 grid grid-cols-2 gap-4"></div>
                 </div>
 
                 <div class="pt-4 border-t border-border flex justify-end space-x-3">
@@ -75,3 +78,35 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    document.getElementById('images').addEventListener('crop-applied', function(e) {
+        const previewContainer = document.getElementById('image-previews');
+        previewContainer.innerHTML = '';
+        const files = this.files;
+        
+        if (files.length > 0) {
+            let statusMsg = document.getElementById('status-msg-edit');
+            if(!statusMsg) {
+                statusMsg = document.createElement('p');
+                statusMsg.id = 'status-msg-edit';
+                statusMsg.className = 'font-medium text-green-600 mt-2 text-sm';
+                this.parentNode.insertBefore(statusMsg, previewContainer);
+            }
+            statusMsg.innerText = `${files.length} foto berhasil dipilih/dipotong dan siap diunggah.`;
+        }
+        
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const div = document.createElement('div');
+                div.className = 'relative aspect-[16/9] rounded-xl overflow-hidden border border-gray-200 shadow-sm';
+                div.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover">`;
+                previewContainer.appendChild(div);
+            }
+            reader.readAsDataURL(file);
+        });
+    });
+</script>
+@endpush

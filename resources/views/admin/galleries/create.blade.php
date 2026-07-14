@@ -42,6 +42,9 @@
                     </div>
                 </div>
                 @error('images.*') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
+                
+                <!-- Preview Container -->
+                <div id="image-previews" class="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
             </div>
         </div>
 
@@ -52,3 +55,38 @@
     </form>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    document.getElementById('images').addEventListener('crop-applied', function(e) {
+        const previewContainer = document.getElementById('image-previews');
+        previewContainer.innerHTML = '';
+        const files = this.files;
+        
+        if (files.length > 0) {
+            const dropzone = document.querySelector('.border-dashed .text-center');
+            if(dropzone) {
+                dropzone.querySelector('label span').innerText = 'Pilih foto lain';
+                let statusMsg = dropzone.querySelector('.status-msg');
+                if(!statusMsg) {
+                    statusMsg = document.createElement('p');
+                    statusMsg.className = 'status-msg font-medium text-green-600 mt-2';
+                    dropzone.appendChild(statusMsg);
+                }
+                statusMsg.innerText = `${files.length} foto berhasil dipilih/dipotong dan siap diunggah.`;
+            }
+        }
+        
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const div = document.createElement('div');
+                div.className = 'relative aspect-[16/9] rounded-xl overflow-hidden border border-gray-200 shadow-sm';
+                div.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover">`;
+                previewContainer.appendChild(div);
+            }
+            reader.readAsDataURL(file);
+        });
+    });
+</script>
+@endpush
