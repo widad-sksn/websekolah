@@ -22,7 +22,8 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse($galleries as $gallery)
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+            <div class="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+                <a href="{{ route('galeri.show', $gallery->slug) }}" class="absolute inset-0 z-20"><span class="sr-only">Lihat Galeri {{ $gallery->title }}</span></a>
                 <!-- Cover Image (First Image if exists) -->
                 <div class="relative h-64 overflow-hidden bg-gray-200">
                     @if($gallery->images->count() > 0)
@@ -46,7 +47,7 @@
                     </div>
                 </div>
                 
-                <!-- Expanded view logic could be added here using AlpineJS (Lightbox) if needed -->
+                <!-- The card is now clickable via the absolute positioned anchor tag above -->
             </div>
             @empty
             <div class="col-span-full text-center py-12">

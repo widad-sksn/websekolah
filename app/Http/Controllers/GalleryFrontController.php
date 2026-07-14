@@ -12,4 +12,10 @@ class GalleryFrontController extends Controller
         $galleries = Gallery::with('images')->latest()->paginate(9);
         return view('galeri.index', compact('galleries'));
     }
+
+    public function show($slug)
+    {
+        $gallery = Gallery::with('images')->where('slug', $slug)->firstOrFail();
+        return view('galeri.show', compact('gallery'));
+    }
 }
