@@ -127,6 +127,14 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
+                <div class="mb-4">
+                    <div class="text-[14px] lg:text-[15px] font-semibold text-[#2563EB] tracking-[0.08em] uppercase mb-2">
+                        {{ $settings['welcome_greeting'] ?? 'Selamat Datang di' }}
+                    </div>
+                    <div class="text-[24px] lg:text-[28px] font-extrabold text-[#0F172A] leading-[1.2]">
+                        {{ $settings['school_name'] ?? 'MTs Muhammadiyah 32' }} {{ $settings['school_district'] ?? 'Sumberagung' }}
+                    </div>
+                </div>
 
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
                     {{ $settings['school_motto'] ?? 'Mendidik Generasi Pemimpin Masa Depan' }}
