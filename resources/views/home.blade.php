@@ -63,17 +63,17 @@
 
         <!-- Navigation Arrows -->
         @if($sliders->count() > 1)
-        <button @click="prev()" class="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        <button @click="prev()" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </button>
-        <button @click="next()" class="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <button @click="next()" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all focus:outline-none">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
 
         <!-- Indicators -->
-        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 md:space-x-3">
+        <div class="absolute bottom-3 md:bottom-6 left-0 right-0 flex justify-center space-x-1.5 md:space-x-3">
             @foreach($sliders as $index => $slider)
-            <button @click="goTo({{ $index }})" class="h-2 rounded-full transition-all duration-300 focus:outline-none" :class="activeSlide === {{ $index }} ? 'w-8 bg-blue-500' : 'w-2 bg-white/50 hover:bg-white/80'"></button>
+            <button @click="goTo({{ $index }})" class="rounded-full transition-all duration-300 focus:outline-none h-1.5 md:h-2" :class="activeSlide === {{ $index }} ? 'w-4 md:w-8 bg-blue-500' : 'w-1.5 md:w-2 bg-white/50 hover:bg-white/80'"></button>
             @endforeach
         </div>
         @endif
