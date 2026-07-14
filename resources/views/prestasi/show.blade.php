@@ -33,7 +33,7 @@
 </section>
 
 <!-- Content Section -->
-<section class="pb-12 md:pb-20 relative -mt-16 md:-mt-24 z-20">
+<section class="py-12 md:py-20 relative z-20">
     <div class="container mx-auto px-4">
         
         <div class="flex flex-col lg:flex-row gap-8 {{ $recent_achievements->count() == 0 ? 'justify-center' : '' }}">
@@ -41,8 +41,8 @@
             <!-- Main Content -->
             <div class="{{ $recent_achievements->count() > 0 ? 'lg:w-3/4' : 'w-full max-w-4xl mx-auto' }}">
                 <article class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-8">
-                        <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" class="w-full object-cover">
+                    <div class="bg-gray-50 border-b border-gray-100 p-4 md:p-8 text-center">
+                        <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" class="inline-block max-w-full w-auto max-h-[500px] rounded-2xl shadow-sm object-contain mx-auto">
                     </div> 
                     
                     <div class="p-6 md:p-12 prose prose-base md:prose-lg prose-blue max-w-none text-gray-700 mx-auto text-center md:text-left">
