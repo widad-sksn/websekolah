@@ -5,7 +5,7 @@
 <!-- Hero Slider Section -->
 @if($sliders->count() > 0)
 <div class="container mx-auto px-4 mt-4 md:mt-8 mb-4 md:mb-8">
-    <div class="relative w-full aspect-[12/5] overflow-hidden bg-slate-900 group rounded-xl md:rounded-2xl shadow-2xl ring-1 ring-gray-900/5" x-data="slider()">
+    <div class="relative w-full aspect-[12/5] overflow-hidden bg-transparent group rounded-xl md:rounded-2xl shadow-2xl" x-data="slider()">
         <!-- Slides -->
         <div class="relative h-full">
             @foreach($sliders as $index => $slider)
@@ -19,10 +19,7 @@
                  class="absolute inset-0"
                  style="display: none;">
                 
-                <div class="absolute inset-0">
-                    <img src="{{ Storage::url($slider->image) }}" alt="" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110">
-                    <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-contain">
-                </div>
+                <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-cover">
                 
                 <!-- Content -->
                 <div class="absolute inset-0 flex items-center">
