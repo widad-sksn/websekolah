@@ -13,7 +13,7 @@
 @section('content')
 
 <!-- Article Header Section -->
-<section class="bg-slate-900 pt-24 pb-32 relative overflow-hidden">
+<section class="bg-slate-900 pt-20 pb-24 md:pt-24 md:pb-32 relative overflow-hidden">
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-slate-900/80 z-10"></div>
         <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" class="w-full h-full object-cover opacity-20 blur-sm">
@@ -21,20 +21,20 @@
     </div>
     
     <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
-        <a href="/berita?kategori={{ $post->category->slug }}" class="inline-block px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-full shadow-lg transition-colors mb-6">
+        <a href="/berita?kategori={{ $post->category->slug }}" class="inline-block px-3 py-1 md:px-4 md:py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-semibold rounded-full shadow-lg transition-colors mb-4 md:mb-6">
             {{ $post->category->name }}
         </a>
-        <h1 class="text-3xl md:text-5xl font-bold font-display text-white leading-tight mb-6">{{ $post->title }}</h1>
-        <div class="flex flex-wrap items-center justify-center text-sm text-slate-300 space-x-6">
-            <span class="flex items-center"><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg> Admin</span>
-            <span class="flex items-center"><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> {{ $post->created_at->format('d M Y') }}</span>
-            <span class="flex items-center"><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg> {{ $post->views }}x Dilihat</span>
+        <h1 class="text-2xl md:text-5xl font-bold font-display text-white leading-tight mb-4 md:mb-6">{{ $post->title }}</h1>
+        <div class="flex flex-wrap items-center justify-center text-xs md:text-sm text-slate-300 gap-3 md:gap-6">
+            <span class="flex items-center"><svg class="w-4 h-4 md:w-5 md:h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg> Admin</span>
+            <span class="flex items-center"><svg class="w-4 h-4 md:w-5 md:h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> {{ $post->created_at->format('d M Y') }}</span>
+            <span class="flex items-center"><svg class="w-4 h-4 md:w-5 md:h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg> {{ $post->views }}x Dilihat</span>
         </div>
     </div>
 </section>
 
 <!-- Content Section -->
-<section class="pb-20 relative -mt-24 z-20">
+<section class="pb-12 md:pb-20 relative -mt-16 md:-mt-24 z-20">
     <div class="container mx-auto px-4">
         
         <div class="flex flex-col lg:flex-row gap-8">
@@ -46,7 +46,7 @@
                         <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" class="w-full object-cover">
                     </div> 
                     
-                    <div class="p-8 md:p-12 prose prose-lg prose-blue max-w-none text-gray-700">
+                    <div class="p-6 md:p-12 prose prose-base md:prose-lg prose-blue max-w-none text-gray-700">
                         {!! $post->content !!}
                     </div>
                     
