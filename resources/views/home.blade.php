@@ -124,6 +124,17 @@
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-dark leading-tight">
                     {{ $settings['school_motto'] ?? 'Mendidik Generasi Pemimpin Masa Depan' }}
                 </h2>
+
+                <!-- Mobile Image (Hidden on Desktop) -->
+                <div class="block lg:hidden w-full relative max-w-md mx-auto my-6">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-500 transform rotate-3 rounded-3xl opacity-20"></div>
+                    @if($welcome_image)
+                        <img src="{{ Storage::url($welcome_image) }}" alt="School Building" class="relative rounded-3xl shadow-xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
+                    @else
+                        <img src="https://ui-avatars.com/api/?name=School&background=0D8ABC&color=fff&size=512" alt="School" class="relative rounded-3xl shadow-xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
+                    @endif
+                </div>
+
                 <p class="text-gray-600 leading-relaxed text-lg">
                     Kami berkomitmen untuk memberikan pendidikan berkualitas tinggi yang mengembangkan potensi intelektual, emosional, dan spiritual setiap siswa. Dengan fasilitas modern dan tenaga pendidik profesional, kami siap mengantarkan anak Anda menuju kesuksesan.
                 </p>
@@ -153,16 +164,17 @@
                     </a>
                 </div>
             </div>
-            <div class="w-full lg:w-1/2 relative max-w-md mx-auto lg:max-w-none">
+
+            <!-- Desktop Image (Hidden on Mobile) -->
+            <div class="hidden lg:block w-full lg:w-1/2 relative max-w-md mx-auto lg:max-w-none">
                 <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-500 transform rotate-3 rounded-3xl opacity-20"></div>
                 @if($welcome_image)
                     <img src="{{ Storage::url($welcome_image) }}" alt="School Building" class="relative rounded-3xl shadow-2xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
                 @else
                     <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop" alt="School Building" class="relative rounded-3xl shadow-2xl object-cover aspect-[4/3] w-full h-auto border-4 border-white">
                 @endif
-                
+            </div>    
 
-            </div>
         </div>
     </div>
 </section>
