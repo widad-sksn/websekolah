@@ -45,6 +45,10 @@
                         <input type="text" name="school_alias" id="school_alias" value="{{ $settings['school_alias'] ?? '' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                     </div>
                     <div class="md:col-span-2">
+                        <label for="welcome_greeting" class="block text-sm font-medium text-dark mb-1">Teks Sapaan (Contoh: Selamat Datang di)</label>
+                        <input type="text" name="welcome_greeting" id="welcome_greeting" value="{{ $settings['welcome_greeting'] ?? '' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                    </div>
+                    <div class="md:col-span-2">
                         <label for="school_motto" class="block text-sm font-medium text-dark mb-1">Motto / Tagline Utama (Judul Besar)</label>
                         <input type="text" name="school_motto" id="school_motto" value="{{ $settings['school_motto'] ?? '' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                     </div>

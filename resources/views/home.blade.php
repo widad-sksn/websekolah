@@ -150,7 +150,7 @@
                     <!-- Glassmorphism Card -->
                     <div class="bg-[rgba(255,255,255,0.82)] backdrop-blur-[12px] border border-[rgba(59,130,246,0.10)] rounded-[18px] px-[24px] py-[16px] shadow-[0_8px_24px_rgba(37,99,235,0.08)] text-center flex flex-col items-center transition-all duration-300 hover:shadow-[0_12px_32px_rgba(37,99,235,0.10)] hover:-translate-y-0.5">
                         <div class="text-[13px] font-semibold text-[#2563EB] tracking-[0.3px] mb-[4px]">
-                            🏫 Selamat Datang di
+                            🏫 {{ $settings['welcome_greeting'] ?? 'Selamat Datang di' }}
                         </div>
                         <div class="text-[22px] md:text-[28px] font-extrabold text-[#0F172A] leading-[1.15] mb-[4px]">
                             {{ $settings['school_name'] ?? 'MTs Muhammadiyah 32' }}
