@@ -321,8 +321,8 @@
                         
                         <!-- Content Overlay -->
                         <div class="absolute bottom-0 left-0 w-full p-4 md:p-6 text-left">
-                            <div class="inline-block px-2 py-1 md:px-3 md:py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg mb-2 md:mb-3">
-                                <span class="text-white text-[10px] md:text-xs font-bold">{{ $achievement->level }}</span>
+                            <div class="inline-flex items-center justify-center px-2.5 py-1 md:px-3 md:py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg mb-2 md:mb-3">
+                                <span class="text-white text-[10px] md:text-xs font-bold uppercase tracking-wider leading-none pt-0.5">{{ $achievement->level }}</span>
                             </div>
                             <h3 class="font-bold text-white text-lg md:text-xl mb-1 md:mb-1.5 leading-tight group-hover:text-blue-300 transition-colors">{{ $achievement->title }}</h3>
                             <p class="text-slate-300 text-xs md:text-sm flex items-center">
