@@ -134,28 +134,28 @@
                 }
                 @keyframes gentleFloatWelcome {
                     0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-3px); }
+                    50% { transform: translateY(-2px); }
                 }
                 .animate-fade-up-welcome {
                     animation: fadeUpWelcome 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
                 }
                 .animate-float-welcome {
-                    animation: gentleFloatWelcome 5s ease-in-out infinite;
+                    animation: gentleFloatWelcome 6s ease-in-out infinite;
                 }
                 </style>
-                <div class="relative max-w-[360px] mx-auto lg:mx-0 w-full mb-[40px] animate-fade-up-welcome animate-float-welcome group">
+                <div class="relative max-w-[280px] md:max-w-[340px] mx-auto lg:mx-0 w-full mt-[24px] mb-[28px] animate-fade-up-welcome animate-float-welcome group">
                     <!-- Subtle blue radial glow -->
-                    <div class="absolute inset-0 bg-[#2563EB] opacity-[0.06] blur-[24px] rounded-[24px] scale-110 -z-10 transition-opacity duration-500 group-hover:opacity-[0.1]"></div>
+                    <div class="absolute inset-0 bg-[#2563EB] opacity-[0.05] blur-[24px] rounded-[18px] scale-110 -z-10 transition-opacity duration-500 group-hover:opacity-[0.08]"></div>
                     
                     <!-- Glassmorphism Card -->
-                    <div class="bg-[rgba(255,255,255,0.78)] backdrop-blur-[14px] border border-[rgba(59,130,246,0.12)] rounded-[24px] px-[28px] py-[24px] shadow-[0_12px_35px_rgba(37,99,235,0.08)] text-center flex flex-col items-center transition-all duration-300 hover:shadow-[0_16px_45px_rgba(37,99,235,0.12)] hover:-translate-y-1">
-                        <div class="text-[14px] font-semibold text-[#2563EB] mb-[12px]">
-                            ✨ Selamat Datang
+                    <div class="bg-[rgba(255,255,255,0.82)] backdrop-blur-[12px] border border-[rgba(59,130,246,0.10)] rounded-[18px] px-[24px] py-[16px] shadow-[0_8px_24px_rgba(37,99,235,0.08)] text-center flex flex-col items-center transition-all duration-300 hover:shadow-[0_12px_32px_rgba(37,99,235,0.10)] hover:-translate-y-0.5">
+                        <div class="text-[13px] font-semibold text-[#2563EB] tracking-[0.3px] mb-[4px]">
+                            🏫 Selamat Datang di
                         </div>
-                        <div class="text-[30px] font-extrabold text-[#0F172A] leading-[1.15] tracking-[-0.5px] mb-[6px]">
+                        <div class="text-[22px] md:text-[28px] font-extrabold text-[#0F172A] leading-[1.15] mb-[4px]">
                             MTs Muhammadiyah 32
                         </div>
-                        <div class="text-[18px] font-semibold text-[#2563EB]">
+                        <div class="text-[16px] font-semibold text-[#2563EB]">
                             Sumberagung
                         </div>
                     </div>
