@@ -32,12 +32,18 @@ class GalleryController extends Controller
             'images.*' => 'image|max:51200'
         ]);
 
+        $slug = Str::slug($validated['title']);
+        $originalSlug = $slug;
+        $count = 1;
+        while (Gallery::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $count++;
+        }
+
         $gallery = Gallery::create([
             'title' => $validated['title'],
-            'slug' => Str::slug($validated['title']),
+            'slug' => $slug,
             'description' => $validated['description'] ?? null
         ]);
-
         if ($request->hasFile('images')) {
             $manager = new ImageManager(new Driver());
             foreach ($request->file('images') as $file) {
@@ -71,9 +77,16 @@ class GalleryController extends Controller
             'images.*' => 'image|max:51200'
         ]);
 
+        $slug = Str::slug($validated['title']);
+        $originalSlug = $slug;
+        $count = 1;
+        while (Gallery::where('slug', $slug)->where('id', '!=', $gallery->id)->exists()) {
+            $slug = $originalSlug . '-' . $count++;
+        }
+
         $gallery->update([
             'title' => $validated['title'],
-            'slug' => Str::slug($validated['title']),
+            'slug' => $slug,
             'description' => $validated['description'] ?? null
         ]);
 
