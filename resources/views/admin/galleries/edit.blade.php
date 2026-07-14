@@ -28,8 +28,8 @@
 
                 <div>
                     <label class="block text-sm font-medium text-dark mb-1">Upload Tambahan Foto</label>
-                    <input type="file" id="images" name="images[]" multiple accept="image/*" onchange="window.initCropper(this, 16/9)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
-                    <p class="mt-2 text-xs text-muted">Bisa pilih lebih dari satu foto sekaligus. <br><strong class="text-blue-600">Rekomendasi: 1920x1080px (16:9).</strong> Ukuran bebas tetap bisa diupload, namun sistem otomatis melakukan crop.</p>
+                    <input type="file" id="images" name="images[]" multiple accept="image/*" onchange="window.initCropper(this, 1)" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
+                    <p class="mt-2 text-xs text-muted">Bisa pilih lebih dari satu foto sekaligus. <br><strong class="text-blue-600">Rekomendasi: 1080x1080px (1:1 / Kotak).</strong> Ukuran bebas tetap bisa diupload, namun sistem otomatis melakukan crop.</p>
                     @error('images.*') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                     
                     <!-- Preview Container -->
@@ -101,7 +101,7 @@
             const reader = new FileReader();
             reader.onload = function(e) {
                 const div = document.createElement('div');
-                div.className = 'relative aspect-[16/9] rounded-xl overflow-hidden border border-gray-200 shadow-sm';
+                div.className = 'relative aspect-square rounded-xl overflow-hidden border border-gray-200 shadow-sm';
                 div.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover">`;
                 previewContainer.appendChild(div);
             }

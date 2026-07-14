@@ -34,11 +34,11 @@
                         <div class="flex text-sm text-gray-600 justify-center">
                             <label for="images" class="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-blue-500 focus-within:outline-none">
                                 <span>Pilih file</span>
-                                <input id="images" name="images[]" type="file" multiple accept="image/*" onchange="window.initCropper(this, 16/9)" class="sr-only">
+                                <input id="images" name="images[]" type="file" multiple accept="image/*" onchange="window.initCropper(this, 1)" class="sr-only">
                             </label>
                             <p class="pl-1">atau drag and drop</p>
                         </div>
-                        <p class="text-xs text-muted mt-2"><strong class="text-blue-600">Rekomendasi: 1920x1080px (16:9).</strong> Ukuran bebas tetap bisa diupload, namun sistem otomatis melakukan crop.</p>
+                        <p class="text-xs text-muted mt-2"><strong class="text-blue-600">Rekomendasi: 1080x1080px (1:1 / Kotak).</strong> Ukuran bebas tetap bisa diupload, namun sistem otomatis melakukan crop.</p>
                     </div>
                 </div>
                 @error('images.*') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
@@ -81,7 +81,7 @@
             const reader = new FileReader();
             reader.onload = function(e) {
                 const div = document.createElement('div');
-                div.className = 'relative aspect-[16/9] rounded-xl overflow-hidden border border-gray-200 shadow-sm';
+                div.className = 'relative aspect-square rounded-xl overflow-hidden border border-gray-200 shadow-sm';
                 div.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover">`;
                 previewContainer.appendChild(div);
             }
