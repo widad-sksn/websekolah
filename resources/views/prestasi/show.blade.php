@@ -36,16 +36,16 @@
 <section class="pb-12 md:pb-20 relative -mt-16 md:-mt-24 z-20">
     <div class="container mx-auto px-4">
         
-        <div class="flex flex-col lg:flex-row gap-8">
+        <div class="flex flex-col lg:flex-row gap-8 {{ $recent_achievements->count() == 0 ? 'justify-center' : '' }}">
             
             <!-- Main Content -->
-            <div class="lg:w-3/4">
+            <div class="{{ $recent_achievements->count() > 0 ? 'lg:w-3/4' : 'w-full max-w-4xl mx-auto' }}">
                 <article class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-8">
                         <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" class="w-full object-cover">
                     </div> 
                     
-                    <div class="p-6 md:p-12 prose prose-base md:prose-lg prose-blue max-w-none text-gray-700">
+                    <div class="p-6 md:p-12 prose prose-base md:prose-lg prose-blue max-w-none text-gray-700 mx-auto text-center md:text-left">
                         {!! nl2br(e($achievement->description)) !!}
                     </div>
                     
@@ -68,7 +68,7 @@
             </div>
 
             <!-- Sidebar -->
-            <div class="lg:w-1/4 space-y-8">
+            <div class="{{ $recent_achievements->count() > 0 ? 'lg:w-1/4 space-y-8' : 'hidden' }}">
                 <!-- Recent Achievements Widget -->
                 @if($recent_achievements->count() > 0)
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">

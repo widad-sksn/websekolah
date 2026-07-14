@@ -269,13 +269,23 @@
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($achievements as $achievement)
-            <a href="/prestasi/{{ $achievement->id }}" class="block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow text-center group cursor-pointer">
-                <div class="w-24 h-24 rounded-2xl p-1 bg-white shadow-md mx-auto mb-4 relative z-10 overflow-hidden">
-                    <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="w-full h-full object-cover rounded-xl transform group-hover:scale-110 transition-transform duration-300">
+            <a href="/prestasi/{{ $achievement->id }}" class="relative block h-72 rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
+                <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent"></div>
+                
+                <!-- Content Overlay -->
+                <div class="absolute bottom-0 left-0 w-full p-6 text-left">
+                    <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg mb-3">
+                        <span class="text-white text-xs font-bold">{{ $achievement->level }}</span>
+                    </div>
+                    <h3 class="font-bold text-white text-xl mb-1.5 leading-tight group-hover:text-blue-300 transition-colors">{{ $achievement->title }}</h3>
+                    <p class="text-slate-300 text-sm flex items-center">
+                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        Tahun {{ $achievement->year }}
+                    </p>
                 </div>
-                <h3 class="font-bold text-dark text-lg mb-1 leading-tight group-hover:text-blue-600 transition-colors">{{ $achievement->title }}</h3>
-                <p class="text-blue-600 font-medium text-sm mb-2">{{ $achievement->level }}</p>
-                <p class="text-gray-500 text-sm">{{ $achievement->year }}</p>
             </a>
             @endforeach
         </div>
