@@ -69,10 +69,10 @@
             </div>
 
             <!-- Bottom Widgets (formerly Sidebar) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex flex-col md:flex-row gap-8 justify-center mt-12">
                 <!-- Recent Posts Widget -->
                 @if($recent_posts->count() > 0)
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                <div class="w-full md:w-1/2 max-w-md mx-auto bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <h3 class="text-lg font-bold font-display text-dark mb-6">Berita Terkait</h3>
                     <div class="space-y-6">
                         @foreach($recent_posts as $recent)
@@ -96,10 +96,10 @@
                 @endif
                 
                 <!-- CTA Widget -->
-                <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-6 text-white text-center shadow-lg shadow-blue-500/20 flex flex-col justify-center">
-                    <h3 class="text-xl font-bold font-display mb-2">Informasi PPDB</h3>
-                    <p class="text-blue-100 text-sm mb-6">Pendaftaran peserta didik baru telah dibuka. Segera daftarkan putra-putri Anda untuk masa depan yang lebih baik.</p>
-                    <a href="/ppdb" class="inline-flex items-center justify-center px-6 py-2.5 bg-white text-blue-600 hover:bg-gray-50 rounded-full font-bold text-sm transition-colors w-full">
+                <div class="w-full {{ $recent_posts->count() > 0 ? 'md:w-1/2' : 'md:w-2/3 max-w-lg' }} mx-auto bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center shadow-lg shadow-blue-500/20 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold font-display mb-3">Informasi PPDB</h3>
+                    <p class="text-blue-100 text-sm mb-6 leading-relaxed">Pendaftaran peserta didik baru telah dibuka. Segera daftarkan putra-putri Anda untuk masa depan yang lebih baik.</p>
+                    <a href="/ppdb" class="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 hover:bg-gray-50 rounded-full font-bold text-sm transition-colors w-full sm:w-auto mx-auto shadow-sm">
                         Daftar Sekarang
                     </a>
                 </div>
