@@ -60,10 +60,7 @@
                         <label for="school_description" class="block text-sm font-medium text-dark mb-1">Deskripsi Singkat (Teks Paragraf Beranda)</label>
                         <textarea name="school_description" id="school_description" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">{{ $settings['school_description'] ?? '' }}</textarea>
                     </div>
-                    <div class="md:col-span-2">
-                        <label for="footer_copyright" class="block text-sm font-medium text-dark mb-1">Teks Footer Copyright</label>
-                        <input type="text" name="footer_copyright" id="footer_copyright" value="{{ $settings['footer_copyright'] ?? '' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
-                    </div>
+
                 </div>
             </div>
 
