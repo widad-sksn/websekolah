@@ -38,6 +38,10 @@ Route::get('/download', [DownloadFrontController::class, 'index'])->name('downlo
 Route::view('/ppdb', 'ppdb.index')->name('ppdb.index');
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
+Route::get('/admin', function () {
+    return redirect()->route('admin.dashboard');
+});
+
 Route::get('/dashboard', function () {
     return redirect()->route('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
