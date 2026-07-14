@@ -51,17 +51,21 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    // Super Admin only
+    Route::middleware('role:Super Admin')->group(function () {
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+    });
+
     // Super Admin & Admin Sekolah only
     Route::middleware('role:Super Admin|Admin Sekolah')->group(function () {
         Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
         Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
-        Route::resource('users', \App\Http\Controllers\Admin\UserController::class); // We will need to create UserController
         Route::resource('sliders', SliderController::class);
         Route::resource('pages', PageController::class);
     });
 
-    // Content Editor, Admin Sekolah, Super Admin
-    Route::middleware('role:Super Admin|Admin Sekolah|Content Editor')->group(function () {
+    // Editor, Admin Sekolah, Super Admin
+    Route::middleware('role:Super Admin|Admin Sekolah|Editor')->group(function () {
         Route::resource('categories', CategoryController::class);
         Route::resource('posts', PostController::class);
         Route::resource('galleries', GalleryController::class);
