@@ -10,10 +10,10 @@
         <div class="relative h-full">
             @foreach($sliders as $index => $slider)
             <div x-show="activeSlide === {{ $index }}" 
-                 x-transition:enter="transition ease-out duration-700" 
+                 x-transition:enter="transition ease-out duration-1000" 
                  x-transition:enter-start="opacity-0 scale-105" 
                  x-transition:enter-end="opacity-100 scale-100" 
-                 x-transition:leave="transition ease-in duration-500" 
+                 x-transition:leave="transition ease-in-out duration-1000" 
                  x-transition:leave-start="opacity-100" 
                  x-transition:leave-end="opacity-0" 
                  class="absolute inset-0"
@@ -28,9 +28,12 @@
                             @if($slider->title)
                             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white leading-tight mb-4 opacity-0 drop-shadow-lg"
                                 x-show="activeSlide === {{ $index }}"
-                                x-transition:enter="transition ease-out duration-700 delay-300"
+                                x-transition:enter="transition ease-out duration-1000 delay-500"
                                 x-transition:enter-start="opacity-0 translate-y-8"
-                                x-transition:enter-end="opacity-100 translate-y-0">
+                                x-transition:enter-end="opacity-100 translate-y-0"
+                                x-transition:leave="transition ease-in duration-700 delay-100"
+                                x-transition:leave-start="opacity-100 translate-y-0"
+                                x-transition:leave-end="opacity-0 -translate-y-4">
                                 {{ $slider->title }}
                             </h1>
                             @endif
@@ -38,9 +41,12 @@
                             @if($slider->subtitle)
                             <p class="text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 opacity-0 leading-relaxed font-light drop-shadow"
                                x-show="activeSlide === {{ $index }}"
-                               x-transition:enter="transition ease-out duration-700 delay-500"
+                               x-transition:enter="transition ease-out duration-1000 delay-700"
                                x-transition:enter-start="opacity-0 translate-y-8"
-                               x-transition:enter-end="opacity-100 translate-y-0">
+                               x-transition:enter-end="opacity-100 translate-y-0"
+                               x-transition:leave="transition ease-in duration-700 delay-200"
+                               x-transition:leave-start="opacity-100 translate-y-0"
+                               x-transition:leave-end="opacity-0 -translate-y-4">
                                 {{ $slider->subtitle }}
                             </p>
                             @endif
@@ -98,7 +104,7 @@
             startAutoPlay() {
                 this.autoPlayInterval = setInterval(() => {
                     this.activeSlide = (this.activeSlide === this.slidesCount - 1) ? 0 : this.activeSlide + 1;
-                }, 5000);
+                }, 7000);
             },
             resetAutoPlay() {
                 clearInterval(this.autoPlayInterval);
