@@ -34,12 +34,12 @@
             <div x-show="tab === 'identitas'" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="md:col-span-2">
-                        <label for="school_name" class="block text-sm font-medium text-dark mb-1">Nama Sekolah</label>
-                        <input type="text" name="school_name" id="school_name" value="{{ $settings['school_name'] ?? '' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
-                    </div>
-                    <div class="md:col-span-2">
                         <label for="welcome_greeting" class="block text-sm font-medium text-dark mb-1">Teks Sapaan (Contoh: Selamat Datang di)</label>
                         <input type="text" name="welcome_greeting" id="welcome_greeting" value="{{ $settings['welcome_greeting'] ?? '' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="school_name" class="block text-sm font-medium text-dark mb-1">Nama Sekolah</label>
+                        <input type="text" name="school_name" id="school_name" value="{{ $settings['school_name'] ?? '' }}" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50">
                     </div>
 
                     <div class="md:col-span-2">
