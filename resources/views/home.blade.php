@@ -203,27 +203,27 @@
                 @foreach($recent_posts as $post)
                 <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-2 md:px-4">
                     <article class="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
-                        <div class="relative h-48 md:h-56 overflow-hidden">
+                        <div class="relative h-40 md:h-56 overflow-hidden">
                             <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-4 left-4">
-                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-semibold rounded-full shadow-sm">{{ $post->category->name }}</span>
+                            <div class="absolute top-3 left-3 md:top-4 md:left-4">
+                                <span class="px-2 py-1 md:px-3 md:py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-[10px] md:text-xs font-semibold rounded-full shadow-sm">{{ $post->category->name }}</span>
                             </div>
                         </div>
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="flex items-center text-xs text-gray-500 mb-3 space-x-4">
-                                <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> {{ $post->created_at->format('d M Y') }}</span>
+                        <div class="p-4 md:p-6 flex-grow flex flex-col">
+                            <div class="flex items-center text-[10px] md:text-xs text-gray-500 mb-2 md:mb-3 space-x-4">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 md:w-4 md:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> {{ $post->created_at->format('d M Y') }}</span>
                             </div>
-                            <h3 class="text-lg md:text-xl font-bold font-display text-dark mb-3 leading-snug group-hover:text-blue-600 transition-colors">
+                            <h3 class="text-base md:text-xl font-bold font-display text-dark mb-2 md:mb-3 leading-snug group-hover:text-blue-600 transition-colors">
                                 <a href="/berita/{{ $post->slug }}" class="focus:outline-none">
                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                     {{ Str::limit($post->title, 50) }}
                                 </a>
                             </h3>
-                            <p class="text-gray-600 text-sm mb-4 line-clamp-2 md:line-clamp-3">
+                            <p class="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2 md:line-clamp-3">
                                 {{ Str::limit(strip_tags($post->content), 100) }}
                             </p>
-                            <div class="mt-auto pt-4 border-t border-gray-100 flex items-center text-sm font-medium text-blue-600">
-                                Baca selengkapnya <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            <div class="mt-auto pt-3 md:pt-4 border-t border-gray-100 flex items-center text-xs md:text-sm font-medium text-blue-600">
+                                Baca selengkapnya <svg class="w-3.5 h-3.5 md:w-4 md:h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
                         </div>
                     </article>
@@ -313,20 +313,20 @@
             <div class="flex transition-transform duration-500 ease-in-out -mx-2 md:-mx-4" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
                 @foreach($achievements as $achievement)
                 <div class="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-2 md:px-4">
-                    <a href="/prestasi/{{ $achievement->id }}" class="relative block h-[26rem] rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
+                    <a href="/prestasi/{{ $achievement->id }}" class="relative block h-[20rem] md:h-[26rem] rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
                         <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         
                         <!-- Gradient Overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent"></div>
                         
                         <!-- Content Overlay -->
-                        <div class="absolute bottom-0 left-0 w-full p-6 text-left">
-                            <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg mb-3">
-                                <span class="text-white text-xs font-bold">{{ $achievement->level }}</span>
+                        <div class="absolute bottom-0 left-0 w-full p-4 md:p-6 text-left">
+                            <div class="inline-block px-2 py-1 md:px-3 md:py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg mb-2 md:mb-3">
+                                <span class="text-white text-[10px] md:text-xs font-bold">{{ $achievement->level }}</span>
                             </div>
-                            <h3 class="font-bold text-white text-xl mb-1.5 leading-tight group-hover:text-blue-300 transition-colors">{{ $achievement->title }}</h3>
-                            <p class="text-slate-300 text-sm flex items-center">
-                                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <h3 class="font-bold text-white text-lg md:text-xl mb-1 md:mb-1.5 leading-tight group-hover:text-blue-300 transition-colors">{{ $achievement->title }}</h3>
+                            <p class="text-slate-300 text-xs md:text-sm flex items-center">
+                                <svg class="w-3.5 h-3.5 md:w-4 md:h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                 Tahun {{ $achievement->year }}
                             </p>
                         </div>
