@@ -21,12 +21,15 @@
                 
                 <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-cover">
                 
-                <!-- Content -->
-                <div class="absolute inset-0 flex items-center">
+                <!-- Overlay background for text readability -->
+                <div class="absolute inset-0 bg-black/40"></div>
+                
+                <!-- Content (Hidden on mobile, Centered on desktop) -->
+                <div class="absolute inset-0 hidden md:flex items-center justify-center text-center">
                     <div class="container mx-auto px-8 md:px-16">
-                        <div class="max-w-3xl">
+                        <div class="max-w-4xl mx-auto">
                             @if($slider->title)
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white leading-tight mb-4 opacity-0 drop-shadow-lg"
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white leading-tight mb-4 opacity-0 drop-shadow-2xl"
                                 x-show="activeSlide === {{ $index }}"
                                 x-transition:enter="transition ease-out duration-[2000ms] delay-[500ms]"
                                 x-transition:enter-start="opacity-0 translate-y-8"
