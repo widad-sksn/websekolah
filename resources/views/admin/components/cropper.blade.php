@@ -149,6 +149,12 @@
     // Auto-preview for cropped images
     document.addEventListener('crop-applied', function(e) {
         let input = e.target;
+        
+        // Skip auto-preview for multiple uploads or inputs explicitly marked to skip
+        if (input.hasAttribute('data-no-auto-preview') || input.multiple) {
+            return;
+        }
+
         if (input.files && input.files[0]) {
             let container = input.parentElement;
             let preview = container.querySelector('.crop-preview-img');
