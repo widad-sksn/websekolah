@@ -17,7 +17,7 @@ class HomeController extends Controller
         });
         
         $recent_posts = \Illuminate\Support\Facades\Cache::remember('home_recent_posts', 3600, function () {
-            return Post::with('category')->where('status', 'published')->latest()->take(3)->get();
+            return Post::with('category')->where('status', 'published')->latest()->take(8)->get();
         });
         
         $achievements = \Illuminate\Support\Facades\Cache::remember('home_achievements', 3600, function () {

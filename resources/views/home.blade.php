@@ -171,49 +171,104 @@
 @if($recent_posts->count() > 0)
 <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl font-bold font-display text-dark mb-3">Berita & Artikel Terbaru</h2>
-                <p class="text-gray-600">Informasi terkini seputar kegiatan dan perkembangan sekolah.</p>
-            </div>
-            <a href="/berita" class="hidden md:inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                Lihat Semua Berita <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
+        <div class="mb-12 text-center md:text-left">
+            <h2 class="text-3xl font-bold font-display text-dark mb-3">Berita & Artikel Terbaru</h2>
+            <p class="text-gray-600">Informasi terkini seputar kegiatan dan perkembangan sekolah.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($recent_posts as $post)
-            <article class="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
-                <div class="relative h-56 overflow-hidden">
-                    <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-semibold rounded-full shadow-sm">{{ $post->category->name }}</span>
-                    </div>
+        <div x-data="newsSlider()" x-init="start()" class="relative overflow-hidden w-full py-4 -mx-4 px-4">
+            <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
+                @foreach($recent_posts as $post)
+                <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-4">
+                    <article class="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
+                        <div class="relative h-48 md:h-56 overflow-hidden">
+                            <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-semibold rounded-full shadow-sm">{{ $post->category->name }}</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center text-xs text-gray-500 mb-3 space-x-4">
+                                <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> {{ $post->created_at->format('d M Y') }}</span>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold font-display text-dark mb-3 leading-snug group-hover:text-blue-600 transition-colors">
+                                <a href="/berita/{{ $post->slug }}" class="focus:outline-none">
+                                    <span class="absolute inset-0" aria-hidden="true"></span>
+                                    {{ Str::limit($post->title, 50) }}
+                                </a>
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2 md:line-clamp-3">
+                                {{ Str::limit(strip_tags($post->content), 100) }}
+                            </p>
+                            <div class="mt-auto pt-4 border-t border-gray-100 flex items-center text-sm font-medium text-blue-600">
+                                Baca selengkapnya <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </div>
+                        </div>
+                    </article>
                 </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <div class="flex items-center text-xs text-gray-500 mb-3 space-x-4">
-                        <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> {{ $post->created_at->format('d M Y') }}</span>
-                    </div>
-                    <h3 class="text-xl font-bold font-display text-dark mb-3 leading-snug group-hover:text-blue-600 transition-colors">
-                        <a href="/berita/{{ $post->slug }}" class="focus:outline-none">
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                            {{ $post->title }}
-                        </a>
-                    </h3>
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-                        {{ Str::limit(strip_tags($post->content), 120) }}
-                    </p>
-                    <div class="mt-auto pt-4 border-t border-gray-100 flex items-center text-sm font-medium text-blue-600">
-                        Baca selengkapnya <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                </div>
-            </article>
-            @endforeach
+                @endforeach
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex justify-center mt-8 space-x-2">
+                <button @click="prev()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button @click="next()" class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
         </div>
+
+        <script>
+        function newsSlider() {
+            return {
+                currentSlide: 0,
+                totalItems: {{ $recent_posts->count() }},
+                itemsPerSlide: 4,
+                interval: null,
+                init() {
+                    this.updateItemsPerSlide();
+                    window.addEventListener('resize', () => this.updateItemsPerSlide());
+                },
+                updateItemsPerSlide() {
+                    if (window.innerWidth < 768) this.itemsPerSlide = 1;
+                    else if (window.innerWidth < 1024) this.itemsPerSlide = 2;
+                    else this.itemsPerSlide = 4;
+                    
+                    if (this.currentSlide > Math.max(0, this.totalItems - this.itemsPerSlide)) {
+                        this.currentSlide = Math.max(0, this.totalItems - this.itemsPerSlide);
+                    }
+                },
+                start() {
+                    this.init();
+                    if(this.totalItems > this.itemsPerSlide) {
+                        this.interval = setInterval(() => {
+                            this.next();
+                        }, 5000);
+                    }
+                },
+                next() {
+                    if (this.currentSlide >= Math.max(0, this.totalItems - this.itemsPerSlide)) {
+                        this.currentSlide = 0;
+                    } else {
+                        this.currentSlide++;
+                    }
+                },
+                prev() {
+                    if (this.currentSlide <= 0) {
+                        this.currentSlide = Math.max(0, this.totalItems - this.itemsPerSlide);
+                    } else {
+                        this.currentSlide--;
+                    }
+                }
+            }
+        }
+        </script>
         
-        <div class="mt-8 text-center md:hidden">
-            <a href="/berita" class="inline-flex items-center justify-center px-5 py-2.5 border border-blue-600 text-blue-600 rounded-xl font-medium text-sm hover:bg-blue-50 transition-colors shadow-sm">
-                Lihat Semua Berita
+        <div class="mt-12 text-center flex flex-col md:flex-row justify-center items-center gap-4">
+            <a href="/berita" class="inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 rounded-xl font-bold text-sm hover:bg-blue-600 hover:text-white transition-colors shadow-sm">
+                Lihat Semua Berita <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
         </div>
     </div>
