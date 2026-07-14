@@ -186,10 +186,10 @@
             </div>
         </div>
 
-        <div class="relative overflow-hidden w-full py-4 -mx-4 px-4">
-            <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
+        <div class="relative overflow-hidden w-full py-4 mt-2">
+            <div class="flex transition-transform duration-500 ease-in-out -mx-2 md:-mx-4" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
                 @foreach($recent_posts as $post)
-                <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-4">
+                <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-2 md:px-4">
                     <article class="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
                         <div class="relative h-48 md:h-56 overflow-hidden">
                             <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
@@ -333,11 +333,11 @@
             </div>
         </div>
         
-        <div class="relative overflow-hidden w-full py-4 -mx-4 px-4">
-            <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
+        <div class="relative overflow-hidden w-full py-4 mt-2">
+            <div class="flex transition-transform duration-500 ease-in-out -mx-2 md:-mx-4" :style="'transform: translateX(-' + (currentSlide * (100 / itemsPerSlide)) + '%)'">
                 @foreach($achievements as $achievement)
-                <div class="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-3">
-                    <a href="/prestasi/{{ $achievement->id }}" class="relative block h-72 rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
+                <div class="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-2 md:px-4">
+                    <a href="/prestasi/{{ $achievement->id }}" class="relative block h-[26rem] rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all">
                         <img src="{{ Storage::url($achievement->photo) }}" alt="{{ $achievement->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         
                         <!-- Gradient Overlay -->
