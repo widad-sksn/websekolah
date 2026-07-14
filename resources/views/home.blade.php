@@ -4,8 +4,8 @@
 
 <!-- Hero Slider Section -->
 @if($sliders->count() > 0)
-<div class="container mx-auto px-4 mt-6 md:mt-8 mb-12">
-    <div class="relative w-full aspect-[12/5] overflow-hidden bg-slate-900 group rounded-3xl shadow-2xl ring-1 ring-gray-900/5" x-data="slider()">
+<div class="container mx-auto px-4 mt-4 md:mt-8 mb-4 md:mb-8">
+    <div class="relative w-full aspect-[12/5] overflow-hidden bg-slate-900 group rounded-xl md:rounded-2xl shadow-2xl ring-1 ring-gray-900/5" x-data="slider()">
         <!-- Slides -->
         <div class="relative h-full">
             @foreach($sliders as $index => $slider)
@@ -114,7 +114,7 @@
 @endif
 
 <!-- Welcome Section -->
-<section class="py-20 bg-white relative overflow-hidden">
+<section class="py-8 md:py-20 bg-white relative overflow-hidden">
     <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-blue-50 blur-3xl opacity-70"></div>
     <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-indigo-50 blur-3xl opacity-70"></div>
     
