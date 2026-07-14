@@ -26,7 +26,7 @@
                     <thead class="bg-gray-50 text-gray-500 font-medium border-b border-gray-100">
                         <tr>
                             <th class="px-6 py-4">Nama Dokumen</th>
-                            <th class="px-6 py-4 hidden md:table-cell">Keterangan</th>
+                            <th class="px-6 py-4 hidden md:table-cell">Ukuran</th>
                             <th class="px-6 py-4">Diunggah</th>
                             <th class="px-6 py-4 text-right">Aksi</th>
                         </tr>
@@ -39,7 +39,7 @@
                                 {{ $download->title }}
                             </td>
                             <td class="px-6 py-4 hidden md:table-cell text-gray-500 max-w-xs truncate">
-                                {{ $download->description ?? '-' }}
+                                {{ $download->size ? number_format($download->size / 1024, 0) . ' KB' : 'Tidak diketahui' }}
                             </td>
                             <td class="px-6 py-4 text-gray-500">
                                 {{ $download->created_at->format('d M Y') }}
