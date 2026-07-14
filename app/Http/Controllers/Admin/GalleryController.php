@@ -7,6 +7,7 @@ use App\Models\Gallery;
 use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -33,6 +34,7 @@ class GalleryController extends Controller
 
         $gallery = Gallery::create([
             'title' => $validated['title'],
+            'slug' => Str::slug($validated['title']),
             'description' => $validated['description'] ?? null
         ]);
 
@@ -71,6 +73,7 @@ class GalleryController extends Controller
 
         $gallery->update([
             'title' => $validated['title'],
+            'slug' => Str::slug($validated['title']),
             'description' => $validated['description'] ?? null
         ]);
 
