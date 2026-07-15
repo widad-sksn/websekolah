@@ -8,10 +8,10 @@
     @hasSection('meta')
         @yield('meta')
     @else
-        <title>{{ config('app.name', 'SchoolCMS') }}</title>
-        <meta name="description" content="Website Resmi {{ config('app.name', 'SchoolCMS') }}">
+        <title>{{ $settings['school_name'] ?? config('app.name', 'SchoolCMS') }}</title>
+        <meta name="description" content="{{ $settings['school_description'] ?? 'Website Resmi ' . ($settings['school_name'] ?? config('app.name', 'SchoolCMS')) }}">
+        <meta name="keywords" content="{{ $settings['school_name'] ?? config('app.name', 'SchoolCMS') }}, MTs MUGADA, MTs Muhammadiyah 32 Sumberagung, Sekolah, Madrasah Tsanawiyah">
     @endif
-
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
 
     <!-- Fonts -->
