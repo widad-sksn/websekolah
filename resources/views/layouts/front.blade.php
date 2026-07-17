@@ -11,6 +11,7 @@
         <title>{{ $settings['school_name'] ?? config('app.name', 'SchoolCMS') }}</title>
         <meta name="description" content="{{ $settings['school_description'] ?? 'Website Resmi ' . ($settings['school_name'] ?? config('app.name', 'SchoolCMS')) }}">
         <meta name="keywords" content="{{ $settings['school_name'] ?? config('app.name', 'SchoolCMS') }}, MTs MUGADA, MTs Muhammadiyah 32 Sumberagung, Sekolah, Madrasah Tsanawiyah">
+        <meta name="msvalidate.01" content="817ECB3F1F748F31609EA8590FE8F4AE" />
     @endif
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
 
